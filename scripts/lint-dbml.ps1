@@ -1,6 +1,6 @@
 param(
   [Parameter(Mandatory = $false)]
-  [string]$Path = "desl.schema.dbml"
+  [string]$Path = "build/desl.schema.dbml"
 )
 
 if (-not (Test-Path $Path)) {

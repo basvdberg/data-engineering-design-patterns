@@ -3,63 +3,6 @@ Project DESL {
   Note: "Generated from markdown files in data model."
 }
 
-Table Event {
-  Note: "Event log used for change tracking and event-driven orchestration."
-  event_id bigint [pk, increment, note: "Unique event identifier."]
-  event_dt timestamp [note: "Event timestamp including milliseconds."]
-  event_type varchar(255) [note: "Type of event (Write, Read, InternalProcess, SchemaChange)."]
-  event_lifecycle varchar(255) [note: "Event lifecycle (Start, EndSuccessful, EndFailed, InProgress)."]
-  obj_id bigint [ref: > Obj.obj_id, note: "FK to a known object from Obj (when found)."]
-  obj_type varchar(255) [note: "Type of related object."]
-  obj_name varchar(255) [note: "Name of related object."]
-  obj_path varchar(255) [note: "Path of related object."]
-  container_type varchar(255) [note: "Storage/system technology type."]
-  container_name varchar(255) [note: "Storage/system instance name."]
-  increment_identifier varchar(255) [note: "Increment marker for partitioned/incremental events."]
-  record_count bigint [note: "Record count in event payload."]
-  progress_indicator smallint [note: "Progress value for in-progress events."]
-}
-
-Table Obj {
-  Note: "Object repository table that stores hierarchical data and container objects."
-  obj_id bigint [pk, increment, note: "Surrogate object identifier."]
-  obj_type varchar(255) [note: "Object class (table, file, schema, database, folder)."]
-  obj_name varchar(255) [note: "Logical object name."]
-  obj_path varchar(255) [note: "Qualified object location/path."]
-  parent_obj_id bigint [note: "FK to parent object."]
-}
-
-Table Prop {
-  Note: "Prop dictionary for normalized object property definitions."
-  prop_id bigint [pk, increment, note: "Surrogate key for prop definition."]
-  prop_name varchar(255) [note: "Unique prop name."]
-  data_type varchar(255) [note: "Expected property value type."]
-  root_obj_type varchar(255) [note: "Root object type where prop inheritance starts."]
-  levels_deep smallint [note: "Inheritance depth for prop propagation. -1 for all levels, 0 for no inheritance."]
-}
-
-Table ObjProp {
-  Note: "Link table assigning properties to objects, including inheritance and overrides."
-  obj_prop_id bigint [pk, increment, note: "Surrogate key for assignment row."]
-  obj_id bigint [ref: > Obj.obj_id, note: "Target object receiving the prop."]
-  prop_id bigint [ref: > Prop.prop_id, note: "Referenced prop definition."]
-  prop_value varchar(255) [note: "Effective prop value for the object."]
-  inherited_from_obj_id bigint [ref: > Obj.obj_id, note: "Source object where inherited value originated."]
-  is_override boolean [note: "Indicates value overrides inherited/default value."]
-}
-
-Table ObjSchema {
-  Note: "Schema metadata table for columns belonging to objects."
-  obj_schema_id bigint [pk, increment, note: "Surrogate key for schema metadata row."]
-  obj_id bigint [ref: > Obj.obj_id, note: "Reference to object whose schema is described."]
-  column_name varchar(255) [note: "Name of source column."]
-  data_type varchar(255) [note: "Source column type."]
-  is_nullable boolean [note: "Whether source column allows nulls."]
-  is_part_of_primary_key boolean [note: "Whether source column participates in PK."]
-  ordinal_position int [note: "Source column order."]
-}
-
-
 Table ControllerRule {
   Note: "Routing rules that map incoming events to executable task templates."
   controller_rule_id bigint [pk, increment, note: "Surrogate key for rule row."]
@@ -92,6 +35,61 @@ Table DataContract {
   is_active boolean [note: "Active-state flag."]
 }
 
+Table Event {
+  Note: "Event log used for change tracking and event-driven orchestration."
+  event_id bigint [pk, increment, note: "Unique event identifier."]
+  event_dt timestamp [note: "Event timestamp including milliseconds."]
+  event_type varchar(255) [note: "Type of event (Write, Read, InternalProcess, SchemaChange)."]
+  event_lifecycle varchar(255) [note: "Event lifecycle (Start, EndSuccessful, EndFailed, InProgress)."]
+  obj_id bigint [ref: > Obj.obj_id, note: "FK to a known object from Obj (when found)."]
+  obj_type varchar(255) [note: "Type of related object."]
+  obj_name varchar(255) [note: "Name of related object."]
+  obj_path varchar(255) [note: "Path of related object."]
+  container_type varchar(255) [note: "Storage/system technology type."]
+  container_name varchar(255) [note: "Storage/system instance name."]
+  increment_identifier varchar(255) [note: "Increment marker for partitioned/incremental events."]
+  record_count bigint [note: "Record count in event payload."]
+  progress_indicator decimal(5,2) [note: "Progress value for in-progress events."]
+}
+
+Table Obj {
+  Note: "Object repository table that stores hierarchical data and container objects."
+  obj_id bigint [pk, increment, note: "Surrogate object identifier."]
+  obj_type varchar(255) [note: "Object class (table, file, schema, database, folder)."]
+  obj_name varchar(255) [note: "Logical object name."]
+  obj_path varchar(255) [note: "Qualified object location/path."]
+  parent_obj_id bigint [note: "FK to parent object."]
+}
+
+Table ObjProp {
+  Note: "Link table assigning properties to objects, including inheritance and overrides."
+  obj_prop_id bigint [pk, increment, note: "Surrogate key for assignment row."]
+  obj_id bigint [ref: > Obj.obj_id, note: "Target object receiving the prop."]
+  prop_id bigint [ref: > Prop.prop_id, note: "Referenced prop definition."]
+  prop_value varchar(255) [note: "Effective prop value for the object."]
+  inherited_from_obj_id bigint [ref: > Obj.obj_id, note: "Source object where inherited value originated."]
+  is_override boolean [note: "Indicates value overrides inherited/default value."]
+}
+
+Table ObjSchema {
+  Note: "Schema metadata table for columns belonging to objects."
+  obj_schema_id bigint [pk, increment, note: "Surrogate key for schema metadata row."]
+  obj_id bigint [ref: > Obj.obj_id, note: "Reference to object whose schema is described."]
+  column_name varchar(255) [note: "Name of source column."]
+  data_type varchar(255) [note: "Source column type."]
+  is_nullable boolean [note: "Whether source column allows nulls."]
+  is_part_of_primary_key boolean [note: "Whether source column participates in PK."]
+  ordinal_position int [note: "Source column order."]
+}
+
+Table Prop {
+  Note: "Prop dictionary for normalized object property definitions."
+  prop_id bigint [pk, increment, note: "Surrogate key for prop definition."]
+  prop_name varchar(255) [note: "Unique prop name."]
+  data_type varchar(255) [note: "Expected property value type."]
+  root_obj_type varchar(255) [note: "Root object type where prop inheritance starts."]
+  levels_deep int [note: "Inheritance depth for prop propagation. -1 for all levels, 0 for no inheritance."]
+}
 
 Table QueuedTask {
   Note: "Execution queue table for tasks created from incoming events."
@@ -121,3 +119,4 @@ Table TaskTemplate {
   target_obj_id bigint [ref: > Obj.obj_id, note: "Target object produced/updated by task."]
   is_active boolean [note: "Active-state flag for template usage."]
 }
+
