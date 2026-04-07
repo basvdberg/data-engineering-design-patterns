@@ -1,0 +1,137 @@
+Project DESL {
+  database_type: "GenericSQL"
+  Note: "Generated from readme.md schema rules and DESL concepts."
+}
+
+Table Obj {
+  obj_id bigint [pk, increment, note: "Surrogate key for object entities. Generated from Object tree pattern (ObjID)."]
+  obj_type varchar(100) [not null, note: "Object classification (table, file, schema, database, etc.). Generated from Object attributes (ObjType)."]
+  obj_name varchar(255) [not null, note: "Business-visible object name. Generated from Object attributes (ObjName)."]
+  obj_path varchar(1000) [not null, note: "Fully qualified location or namespace of the object. Generated from Object attributes (ObjPath)."]
+  parent_obj_id bigint [ref: > Obj.obj_id, note: "Parent object in hierarchy; null indicates root. Generated from Object attributes (ParentObjId)."]
+  is_obj boolean [not null, default: false, note: "Indicates whether the node is a data-bearing object. Generated from Object tree rationale (data object vs container object)."]
+  created_dt timestamp [not null, note: "Creation timestamp in the metadata repository. Generated from schema convention for *_dt timestamps."]
+
+  indexes {
+    (obj_type, obj_path) [unique]
+  }
+}
+
+Table ObjSchema {
+  obj_schema_id bigint [pk, increment, note: "Surrogate key for schema-column metadata rows. Generated from Data Object Schema pattern (Schema ID)."]
+  obj_id bigint [not null, ref: > Obj.obj_id, note: "Reference to object that owns the column definition. Generated from Data Object Schema attributes (ObjID)."]
+  column_name varchar(255) [not null, note: "Column name in the source object schema. Generated from Data Object Schema attributes (Column name)."]
+  data_type varchar(255) [not null, note: "Declared data type for the source column. Generated from Data Object Schema attributes (Data type)."]
+  is_nullable boolean [not null, note: "Nullability flag from source schema definition. Generated from Data Object Schema attributes (IsNullable)."]
+  is_part_of_primary_key boolean [not null, default: false, note: "Indicates key participation in source schema. Generated from Data Object Schema attributes (IsPartOfPrimaryKey)."]
+  ordinal_position int [not null, note: "Physical/logical column order in source schema. Generated from Data Object Schema attributes (OrdinalPosition)."]
+
+  indexes {
+    (obj_id, column_name) [unique]
+    (obj_id, ordinal_position) [unique]
+  }
+}
+
+Table Prop {
+  prop_id bigint [pk, increment, note: "Surrogate key for prop definitions. Generated from Prop pattern (Prop ID)."]
+  prop_name varchar(255) [not null, unique, note: "Canonical prop name. Generated from Prop pattern (Prop name)."]
+  data_type varchar(100) [not null, note: "Expected data type for prop values. Generated from Prop pattern (Data type)."]
+  default_value varchar(2000) [note: "Fallback value used when no object-specific override exists. Generated from Prop pattern (Default value)."]
+  root_obj_type varchar(100) [not null, note: "Object type at which prop inheritance starts. Generated from Prop pattern (RootObjType)."]
+  levels_deep int [not null, note: "Maximum inheritance depth for applying prop values. Generated from Prop pattern (LevelsDeep)."]
+}
+
+Table ObjProp {
+  obj_prop_id bigint [pk, increment, note: "Surrogate key for object-prop assignments. Generated from object tree properties design."]
+  obj_id bigint [not null, ref: > Obj.obj_id, note: "Object receiving the prop value. Generated from object tree properties design."]
+  prop_id bigint [not null, ref: > Prop.prop_id, note: "Prop definition being assigned. Generated from object tree properties design."]
+  prop_value varchar(4000) [note: "Resolved prop value for the object. Generated from object tree properties design."]
+  inherited_from_obj_id bigint [ref: > Obj.obj_id, note: "Source object where inherited value originated. Generated from inheritance rationale in object tree properties."]
+  is_override boolean [not null, default: false, note: "True when value overrides inherited/default value. Generated from object tree properties design."]
+
+  indexes {
+    (obj_id, prop_id) [unique]
+  }
+}
+
+Table DataContract {
+  data_contract_id bigint [pk, increment, note: "Surrogate key for producer-consumer contracts. Generated from Ingest source data contract phase."]
+  contract_name varchar(255) [not null, unique, note: "Human-readable contract identifier. Generated from contract phase description."]
+  source_obj_id bigint [not null, ref: > Obj.obj_id, note: "Object delivered under the contract. Generated from source data contract concept."]
+  data_owner varchar(255) [not null, note: "Owning party granting access. Generated from security/privacy rationale."]
+  data_consumer varchar(255) [not null, note: "Consuming party using data. Generated from contract phase definition."]
+  allowed_purpose text [not null, note: "Authorized usage purpose for the data. Generated from contract constraints."]
+  delivery_window varchar(255) [note: "Allowed extraction/delivery time window. Generated from contract and ingestion constraints."]
+  allowed_frequency varchar(100) [note: "Maximum permitted extraction frequency. Generated from contract constraints."]
+  sla_minutes int [note: "SLA threshold in minutes for delivery timeliness. Generated from contract/SLA concept."]
+  active_from_dt timestamp [not null, note: "Contract validity start timestamp. Generated from temporal contract validity needs."]
+  active_to_dt timestamp [note: "Contract validity end timestamp. Generated from temporal contract validity needs."]
+  is_active boolean [not null, default: true, note: "Current activation flag for the contract. Generated from contract lifecycle handling."]
+}
+
+Table TaskTemplate {
+  task_template_id bigint [pk, increment, note: "Surrogate key for executable task blueprints. Generated from Task Template attributes."]
+  task_template_name varchar(255) [not null, unique, note: "Name of the orchestration template (e.g., ingest CSV). Generated from Task Template attributes."]
+  interface_type varchar(100) [not null, note: "Interface/protocol class used by task. Generated from ingest interface definition."]
+  task_code text [note: "Executable logic reference/content for orchestration. Generated from Task Template task code description."]
+  retry_max_attempts int [not null, default: 3, note: "Maximum retries before final failure. Generated from orchestration retry requirement."]
+  retry_backoff_seconds int [not null, default: 30, note: "Wait time between retries in seconds. Generated from retry/backoff guidance."]
+  idempotency_key_strategy varchar(255) [not null, note: "Strategy used to ensure repeatable/idempotent execution. Generated from idempotency requirement."]
+  target_obj_id bigint [ref: > Obj.obj_id, note: "Target object produced or updated by the task. Generated from task execution context."]
+  is_active boolean [not null, default: true, note: "Activation state for selecting runnable templates. Generated from orchestration lifecycle handling."]
+}
+
+Table Event {
+  event_id bigint [pk, increment, note: "Monotonic event identifier for incremental processing. Generated from Event attributes (Unique ID)."]
+  event_timestamp_dt timestamp [not null, note: "Timestamp (with milliseconds) when event occurred. Generated from Event attributes (EventTimestamp)."]
+  event_type varchar(100) [not null, note: "Type of event (Write, Read, InternalProcess, SchemaChange). Generated from Event attributes (EventType)."]
+  event_status varchar(100) [not null, note: "Event lifecycle state (Start, EndSuccessful, EndFailed, InProgress). Generated from Event attributes (EventStatus)."]
+  obj_type varchar(100) [not null, note: "Type of object linked to event (File, Table, InternalProcess). Generated from Event attributes (ObjectType)."]
+  obj_name varchar(255) [not null, note: "Name of object linked to event. Generated from Event attributes (ObjectName)."]
+  obj_path varchar(1000) [not null, note: "Path/namespace of object linked to event. Generated from Event attributes (ObjectPath)."]
+  container_type varchar(100) [not null, note: "Container technology (MSSQL, blob storage, local path, share). Generated from Event attributes (ContainerType)."]
+  container_name varchar(500) [not null, note: "Container instance name/address. Generated from Event attributes (ContainerName)."]
+  increment_identifier varchar(100) [note: "Increment marker (for example batch date). Generated from Event attributes (IncrementIdentifier)."]
+  record_count bigint [note: "Number of records associated with event payload. Generated from Event attributes (RecordCount)."]
+  progress_indicator decimal(5,2) [note: "Progress percentage/value for in-progress events. Generated from Event attributes (ProgressIndicator)."]
+  source_obj_id bigint [ref: > Obj.obj_id, note: "Resolved object reference for event source. Generated by linking event object descriptors to Obj."]
+
+  indexes {
+    (event_timestamp_dt)
+    (event_type, event_status, obj_type)
+  }
+}
+
+Table ControllerRule {
+  controller_rule_id bigint [pk, increment, note: "Surrogate key for controller routing rules. Generated from Controller Rule attributes (Rule ID)."]
+  rule_name varchar(255) [not null, unique, note: "Rule label describing orchestration intent. Generated from Controller Rule attributes (Rule name)."]
+  filter_event_type varchar(100) [note: "Optional filter on event type. Generated from Controller Rule event filter."]
+  filter_event_status varchar(100) [note: "Optional filter on event status. Generated from Controller Rule event filter."]
+  filter_obj_type varchar(100) [note: "Optional filter on object type. Generated from Controller Rule event filter."]
+  filter_obj_name varchar(255) [note: "Optional filter on object name. Generated from Controller Rule event filter."]
+  filter_obj_path varchar(1000) [note: "Optional filter on object path. Generated from Controller Rule event filter."]
+  filter_container_type varchar(100) [note: "Optional filter on container type. Generated from Controller Rule event filter."]
+  filter_container_name varchar(500) [note: "Optional filter on container name. Generated from Controller Rule event filter."]
+  task_template_id bigint [not null, ref: > TaskTemplate.task_template_id, note: "Task template triggered when filter matches. Generated from Controller Rule TaskTemplate attribute."]
+  priority int [not null, default: 100, note: "Rule execution priority, lower value means earlier handling. Generated from controller performance/ordering needs."]
+  is_active boolean [not null, default: true, note: "Activation flag for applying the rule at runtime. Generated from controller lifecycle handling."]
+}
+
+Table QueuedTask {
+  queued_task_id bigint [pk, increment, note: "Surrogate key for queued execution units. Generated from publish-subscriber queueing design."]
+  source_event_id bigint [not null, ref: > Event.event_id, note: "Event that caused the task to be created. Generated from event-driven orchestration."]
+  task_template_id bigint [not null, ref: > TaskTemplate.task_template_id, note: "Template to execute for this queued task. Generated from rule-to-task mapping."]
+  task_status varchar(100) [not null, note: "Current state of queued/running/completed task. Generated from queue processing lifecycle."]
+  priority int [not null, default: 100, note: "Scheduling priority in queue. Generated from publish-subscriber prioritization rules."]
+  expected_capacity int [not null, default: 1, note: "Estimated capacity units consumed by this task. Generated from queue capacity model."]
+  late_time_seconds int [note: "Delay between expected and actual arrival time in seconds. Generated from publish-subscriber late_time concept."]
+  queued_dt timestamp [not null, note: "Timestamp when task entered queue. Generated from queueing timestamp requirement."]
+  started_dt timestamp [note: "Timestamp when task execution started. Generated from task lifecycle tracking."]
+  finished_dt timestamp [note: "Timestamp when task execution finished. Generated from task lifecycle tracking."]
+  retry_count int [not null, default: 0, note: "Number of retry attempts performed. Generated from retry mechanism requirement."]
+  error_message text [note: "Last recorded execution error message. Generated from failure logging requirement."]
+
+  indexes {
+    (task_status, priority, queued_dt)
+  }
+}
