@@ -21,7 +21,7 @@ Table Event {
 }
 
 Table Obj {
-  Note: "Object repository table that stores hierarchical data and container objects."
+  Note: "Stores data objects and data containers and their hierarchical relationship."
   obj_id bigint [pk, increment, note: "Surrogate object identifier."]
   obj_type varchar(255) [note: "Object class (table, file, schema, database, folder)."]
   obj_name varchar(255) [note: "Logical object name."]
@@ -30,12 +30,12 @@ Table Obj {
 }
 
 Table Prop {
-  Note: "Prop dictionary for normalized object property definitions."
+  Note: "Property definition for adding flexible meta data to objects."
   prop_id bigint [pk, increment, note: "Surrogate key for prop definition."]
   prop_name varchar(255) [note: "Unique prop name."]
-  data_type varchar(255) [note: "Expected property value type."]
-  root_obj_type varchar(255) [note: "Root object type where prop inheritance starts."]
-  levels_deep smallint [note: "Inheritance depth for prop propagation. -1 for all levels, 0 for no inheritance."]
+  data_type varchar(255) [note: "Property value type."]
+  root_obj_type varchar(255) [note: "Root object type where property inheritance starts."]
+  levels_deep smallint [note: "Default inheritance depth for prop propagation. -1 for all levels, 0 for no inheritance."]
 }
 
 Table ObjProp {
@@ -44,21 +44,19 @@ Table ObjProp {
   obj_id bigint [ref: > Obj.obj_id, note: "Target object receiving the prop."]
   prop_id bigint [ref: > Prop.prop_id, note: "Referenced prop definition."]
   prop_value varchar(255) [note: "Effective prop value for the object."]
-  inherited_from_obj_id bigint [ref: > Obj.obj_id, note: "Source object where inherited value originated."]
-  is_override boolean [note: "Indicates value overrides inherited/default value."]
+  levels_deep smallint [note: "Inheritance depth for prop propagation. -1 for all levels, 0 for no inheritance."]
 }
 
 Table ObjSchema {
-  Note: "Schema metadata table for columns belonging to objects."
+  Note: "Schema metadata table for columns belonging to data objects."
   obj_schema_id bigint [pk, increment, note: "Surrogate key for schema metadata row."]
   obj_id bigint [ref: > Obj.obj_id, note: "Reference to object whose schema is described."]
+  ordinal_position int [note: "Source column order."]
   column_name varchar(255) [note: "Name of source column."]
   data_type varchar(255) [note: "Source column type."]
   is_nullable boolean [note: "Whether source column allows nulls."]
-  is_part_of_primary_key boolean [note: "Whether source column participates in PK."]
-  ordinal_position int [note: "Source column order."]
+  is_pk boolean [note: "Whether source column participates in primary key."]
 }
-
 
 Table ControllerRule {
   Note: "Routing rules that map incoming events to executable task templates."
@@ -84,18 +82,18 @@ Table DataContract {
   data_owner varchar(255) [note: "Owner responsible for granting access."]
   data_consumer varchar(255) [note: "Consumer allowed to use the data."]
   allowed_purpose varchar(255) [note: "Allowed business purpose for usage."]
-  delivery_window varchar(255) [note: "Allowed delivery/extraction time window."]
-  allowed_frequency varchar(255) [note: "Allowed extraction frequency."]
-  sla_minutes int [note: "SLA for delivery timeliness."]
+  delivery_window_start time [note: "Allowed delivery/extraction time window start time."]
+  delivery_window_end time [note: "Allowed delivery/extraction time window end time."]
+  allowed_frequency varchar(255) [note: "Allowed extraction frequency. (Always,Daily, Weekly, Monthly, WorkingDays, NonWorkingDays or days of the week in ISO-style numbers (1=Mon … 7=Sun), e.g.:1,2,3,5 → Monday, Tuesday, Wednesday, Friday"]
   active_from_dt timestamp [note: "Contract start timestamp."]
   active_to_dt timestamp [note: "Contract end timestamp."]
   is_active boolean [note: "Active-state flag."]
 }
 
 
-Table QueuedTask {
+Table Queue {
   Note: "Execution queue table for tasks created from incoming events."
-  queued_task_id bigint [pk, increment, note: "Surrogate key for queued task row."]
+  queue_id bigint [pk, increment, note: "Surrogate key for queued task row."]
   source_event_id bigint [ref: > Event.event_id, note: "Event that created the task."]
   task_template_id bigint [ref: > TaskTemplate.task_template_id, note: "Template executed by this task."]
   task_status varchar(255) [note: "Current execution state."]
@@ -117,7 +115,5 @@ Table TaskTemplate {
   task_code varchar(255) [note: "Executable task logic or reference."]
   retry_max_attempts int [note: "Maximum retry attempts."]
   retry_backoff_seconds int [note: "Delay between retries in seconds."]
-  idempotency_key_strategy varchar(255) [note: "Method ensuring idempotent execution."]
-  target_obj_id bigint [ref: > Obj.obj_id, note: "Target object produced/updated by task."]
   is_active boolean [note: "Active-state flag for template usage."]
 }

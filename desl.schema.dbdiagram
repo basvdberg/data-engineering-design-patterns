@@ -2,61 +2,85 @@
   "version": "1.0.0",
   "darkMode": true,
   "gridEnabling": false,
-  "detailLevel": "All",
+  "detailLevel": "Tables",
   "tablePositions": [
     {
-      "name": "Obj",
+      "name": "DataObject",
       "schemaName": "public",
-      "x": 1008,
-      "y": 576
+      "x": 616,
+      "y": 400
     },
     {
-      "name": "ObjSchema",
+      "name": "DataObjectSchema",
       "schemaName": "public",
-      "x": 368,
-      "y": 144
+      "x": 232,
+      "y": 240
     },
     {
       "name": "Property",
       "schemaName": "public",
-      "x": 1552,
-      "y": 936
+      "x": 864,
+      "y": 544
     },
     {
-      "name": "ObjProperty",
+      "name": "DataObjectProperty",
       "schemaName": "public",
-      "x": 1472,
-      "y": 496
+      "x": 856,
+      "y": 304
     },
     {
       "name": "DataContract",
       "schemaName": "public",
-      "x": 1112,
-      "y": 968
+      "x": 672,
+      "y": 664
     },
     {
       "name": "TaskTemplate",
       "schemaName": "public",
-      "x": 512,
-      "y": 528
+      "x": 472,
+      "y": 560
     },
     {
       "name": "Event",
       "schemaName": "public",
-      "x": 864,
-      "y": 48
+      "x": 424,
+      "y": 360
     },
     {
       "name": "ControllerRule",
       "schemaName": "public",
-      "x": 48,
-      "y": 632
+      "x": 240,
+      "y": 448
+    },
+    {
+      "name": "ControllerCheckpoint",
+      "schemaName": "public",
+      "x": 368,
+      "y": 48
     },
     {
       "name": "QueuedTask",
       "schemaName": "public",
-      "x": 616,
-      "y": 968
+      "x": 272,
+      "y": 648
+    },
+    {
+      "name": "IngestionBatchLog",
+      "schemaName": "public",
+      "x": 472,
+      "y": 784
+    },
+    {
+      "name": "IngestionRecordError",
+      "schemaName": "public",
+      "x": 48,
+      "y": 600
+    },
+    {
+      "name": "BitemporalRecord",
+      "schemaName": "public",
+      "x": 640,
+      "y": 192
     }
   ],
   "tableGroupCollapseStates": [],
@@ -64,88 +88,58 @@
   "referencePaths": [
     {
       "firstFieldNames": [
-        "obj_id"
+        ""
       ],
-      "firstTableName": "Obj",
+      "firstTableName": "DataObject",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "parent_obj_id"
+        ""
       ],
-      "secondTableName": "Obj",
+      "secondTableName": "DataObjectSchema",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
     },
     {
       "firstFieldNames": [
-        "obj_id"
+        ""
       ],
-      "firstTableName": "Obj",
+      "firstTableName": "DataObject",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "obj_id"
+        ""
       ],
-      "secondTableName": "ObjSchema",
+      "secondTableName": "DataObjectProperty",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
     },
     {
       "firstFieldNames": [
-        "obj_id"
-      ],
-      "firstTableName": "Obj",
-      "firstSchemaName": "public",
-      "firstRelation": "1",
-      "secondFieldNames": [
-        "obj_id"
-      ],
-      "secondTableName": "ObjProperty",
-      "secondSchemaName": "public",
-      "secondRelation": "*",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
-        "property_id"
+        ""
       ],
       "firstTableName": "Property",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "property_id"
+        ""
       ],
-      "secondTableName": "ObjProperty",
+      "secondTableName": "DataObjectProperty",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
     },
     {
       "firstFieldNames": [
-        "obj_id"
+        ""
       ],
-      "firstTableName": "Obj",
+      "firstTableName": "DataObject",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "inherited_from_obj_id"
-      ],
-      "secondTableName": "ObjProperty",
-      "secondSchemaName": "public",
-      "secondRelation": "*",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
-        "obj_id"
-      ],
-      "firstTableName": "Obj",
-      "firstSchemaName": "public",
-      "firstRelation": "1",
-      "secondFieldNames": [
-        "source_obj_id"
+        ""
       ],
       "secondTableName": "DataContract",
       "secondSchemaName": "public",
@@ -154,13 +148,13 @@
     },
     {
       "firstFieldNames": [
-        "obj_id"
+        ""
       ],
-      "firstTableName": "Obj",
+      "firstTableName": "DataObject",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "target_obj_id"
+        ""
       ],
       "secondTableName": "TaskTemplate",
       "secondSchemaName": "public",
@@ -169,13 +163,13 @@
     },
     {
       "firstFieldNames": [
-        "obj_id"
+        ""
       ],
-      "firstTableName": "Obj",
+      "firstTableName": "DataObject",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "source_obj_id"
+        ""
       ],
       "secondTableName": "Event",
       "secondSchemaName": "public",
@@ -184,13 +178,13 @@
     },
     {
       "firstFieldNames": [
-        "task_template_id"
+        ""
       ],
       "firstTableName": "TaskTemplate",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "task_template_id"
+        ""
       ],
       "secondTableName": "ControllerRule",
       "secondSchemaName": "public",
@@ -199,13 +193,28 @@
     },
     {
       "firstFieldNames": [
-        "event_id"
+        ""
       ],
       "firstTableName": "Event",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "source_event_id"
+        ""
+      ],
+      "secondTableName": "ControllerCheckpoint",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        ""
+      ],
+      "firstTableName": "Event",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        ""
       ],
       "secondTableName": "QueuedTask",
       "secondSchemaName": "public",
@@ -214,15 +223,60 @@
     },
     {
       "firstFieldNames": [
-        "task_template_id"
+        ""
       ],
       "firstTableName": "TaskTemplate",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
-        "task_template_id"
+        ""
       ],
       "secondTableName": "QueuedTask",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        ""
+      ],
+      "firstTableName": "QueuedTask",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        ""
+      ],
+      "secondTableName": "IngestionBatchLog",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        ""
+      ],
+      "firstTableName": "IngestionBatchLog",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        ""
+      ],
+      "secondTableName": "IngestionRecordError",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        ""
+      ],
+      "firstTableName": "DataObject",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        ""
+      ],
+      "secondTableName": "BitemporalRecord",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
