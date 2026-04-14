@@ -1,15 +1,17 @@
-# Object property tree
+# Data object property tree
 
 ## Purpose
 
-The object property tree is a metadata pattern that models data objects in a hierarchy and attaches configurable properties to each level. It provides one central structure to define object ownership, schema expectations, extraction contracts, and runtime behavior used by orchestration and processing tasks.
+Data objects have a hierarchical structure. For example: A table lives inside a schema, a schema lives inside a database and a database is hosted on a server, or a CSV file lives inside a folder that is part of a storage container that is part of a storage account.
+
+For data engineering, we want to assign flexible properties to data objects that might also be inherited by descendants. For example, we might want to assign a source system name property to all tables and schemas that exist in a certain database. Or we might want to assign an `include for ingestion` property to all files in a certain folder except for files A, B and C. 
 
 ## Benefits
 
-- Maintainability. Object definitions and properties are centralized, reducing duplicated configuration in pipelines and SQL code.
-- Reusability. Shared properties can be defined at parent levels and inherited by child objects, minimizing repeated setup.
-- Governance. Contracts and schema metadata are stored with the object model, making ownership and usage rules explicit.
-- Flexibility. New behavior can be introduced by adding metadata properties instead of changing table designs or process code.
+- Non redundant way to represent property object relationship (no copy-pasting), thus fault tolerant. 
+- Ability to specify generic properties. E.g. valid for an entire database or server. But also have the option to specify exceptions on generic rules. 
+- When new data objects arrive that fall under the scope of existing properties, nothing needs to be done. 
+- Using a simple boolean include properties you can easily specify the scope of your data transformation as opposed to for example having to list entire file paths several times in a json config file. 
 
 ## Summary
 
