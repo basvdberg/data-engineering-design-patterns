@@ -54,7 +54,7 @@ This is a list of task instances with additional execution attributes:
 - Status
 - Start timestamp
 - Finish timestamp
-- Read try count
+- Retry count
 - Last error message
 
 
