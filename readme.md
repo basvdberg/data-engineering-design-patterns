@@ -15,6 +15,19 @@ Business intelligence (BI) is the process of collecting, analyzing, and presenti
 
 Project terminology is maintained in `glossary.md`.
 
+## Markdown table of contents automation
+
+Use the script below to refresh table-of-contents blocks in markdown files that
+already contain a `## Table of contents` section:
+
+`powershell -File scripts/update-markdown-toc.ps1 -Paths "design patterns"`
+
+To install the git pre-commit hook (one-time per local clone), run:
+
+`powershell -File scripts/install-precommit-hook.ps1`
+
+The hook updates markdown TOCs for staged `.md` files before every commit.
+
 ```mermaid
 flowchart LR
     SS1([Source System])

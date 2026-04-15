@@ -1,5 +1,22 @@
 # Data object property tree
 
+## Table of contents
+
+<!-- toc:start -->
+- [Purpose](#purpose)
+- [Benefits](#benefits)
+- [Summary](#summary)
+- [Components](#components)
+  - [Data Object (Obj)](#data-object-obj)
+  - [TableSchema](#tableschema)
+  - [Prop](#prop)
+  - [ObjProp](#objprop)
+  - [Property resolution rules](#property-resolution-rules)
+- [Processes](#processes)
+  - [Object discovery](#object-discovery)
+  - [Table schema discovery](#table-schema-discovery)
+<!-- toc:end -->
+
 ## Purpose
 
 Data objects have a hierarchical structure. For example: A table lives inside a schema, a schema lives inside a database and a database is hosted on a server, or a CSV file lives inside a folder that is part of a storage container that is part of a storage account.
@@ -8,18 +25,18 @@ For data engineering, we want to assign flexible properties to data objects that
 
 ## Benefits
 
-- Non redundant way to represent property object relationship (no copy-pasting), thus fault tolerant. 
+- Non redundant way to represent property object relationship (no copy-pasting), thus less errror prone. 
 - Ability to specify generic properties. E.g. valid for an entire database or server. But also have the option to specify exceptions on generic rules. 
 - When new data objects arrive that fall under the scope of existing properties, nothing needs to be done. 
 - Using a simple boolean include properties you can easily specify the scope of your data transformation as opposed to for example having to list entire file paths several times in a json config file. 
 
 ## Summary
 
-Objects are modeled as a tree, properties are attached and inherited, and orchestration reads the resolved metadata to decide how each object must be processed.
+Objects are modeled as a tree, properties are attached and inherited. It is possible to have both inheritance and exceptions.  
 
 ## Components
 
-### Obj
+### Data Object (Obj)
 
 The `Obj` entity is the registry of data objects and containers involved in data processing. It stores each object and its parent-child relation so that datasets can be represented from broad domains down to concrete tables, files, or views.
 
@@ -28,24 +45,26 @@ Examples:
 - A child object `sales.raw`.
 - A leaf object `sales.raw.orders_csv`.
 
-### ObjSchema
+### TableSchema
 
-The `ObjSchema` entity stores structural metadata for each object so orchestration and downstream tasks can validate expectations before processing.
+If the object is a table (either in a database or in a file), The `TableSchema` entity stores structural metadata, like: 
 
-Examples:
-- Expected columns and data types for `sales.raw.orders_csv`.
-- Primary key fields for curated objects.
-- Optional partitioning and clustering metadata.
+- Columns and data types.
+- Primary and foreign key fields.
+- Nullable property
+- Default values
+- Partitioning or indexing metadata.
 
 ### Prop
 
-The `Prop` entity defines reusable property types that represent configurable behavior.
+The `Prop` entity defines properties that can be assigned to data objects.
 
 Examples:
 - Retention period in days.
 - Required freshness SLA.
-- Allowed load mode (`full`, `incremental`, `merge`).
-
+- Allowed load mode (`full`, `incremental`).
+- Is inluded in ingestion (yes/no)
+  
 ### ObjProp
 
 The `ObjProp` entity links a property to an object, including value and validity metadata. Properties can be inherited from parent objects unless overridden on the child.
@@ -56,16 +75,17 @@ Examples:
 
 ### Property resolution rules
 
-Resolved object configuration is calculated at runtime by combining inherited and directly assigned properties.
+The object property tree is calculated at runtime by combining inherited and directly assigned properties.
 
 Typical rules:
 - Child properties override inherited parent properties for the same key.
 - Missing properties fall back to parent values until the root is reached.
-- If a required property is not resolved, orchestration raises a configuration error.
 
-### Core object-property flow
+## Processes
+### Object discovery
 
-1. An object is registered in `Obj` and linked to its parent.
-2. Contracts, schema definitions, and properties are assigned at appropriate levels.
-3. When orchestration prepares a task for a concrete object, it resolves inherited and local properties into one effective configuration.
-4. The task executes using this resolved configuration (for example selected load mode, retention, and validation rules).
+This process discovers all objects for a given parent. For example, recursively scan all databases, schemas, tables, and views on a given database server, Or scan all files and folders recursively for a given path.
+
+### Table schema discovery 
+
+This process extracts the table schema metadata from a relational database.
