@@ -1,5 +1,21 @@
 # Event-based orchestration
 
+## Table of contents
+
+<!-- toc:start -->
+- [Purpose](#purpose)
+- [Benefits](#benefits)
+- [Summary](#summary)
+- [Components](#components)
+  - [Event](#event)
+  - [Trigger](#trigger)
+  - [Task](#task)
+    - [TaskDefinition](#taskdefinition)
+    - [TaskInstance](#taskinstance)
+  - [Queue](#queue)
+  - [Core event-driven flow](#core-event-driven-flow)
+<!-- toc:end -->
+
 ## Purpose
 
 Orchestration is the central engine that starts processes to read, transform, and write data. Many processes can run at the same time, and there can be many dependencies between processes, or between a process and external events. This design pattern lets you define these processes, dependencies, and events in a declarative way, making it easier to understand and maintain.

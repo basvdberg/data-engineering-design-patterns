@@ -1,5 +1,28 @@
 # Historic bitemporal table
 
+## Table of contents
+
+<!-- toc:start -->
+- [Definitions](#definitions)
+  - [Valid time](#valid-time)
+  - [Recording time](#recording-time)
+  - [Synonyms](#synonyms)
+  - [BOT and EOT](#bot-and-eot)
+- [Purpose](#purpose)
+- [Benefits](#benefits)
+- [Assumptions](#assumptions)
+  - [The always valid assumption](#the-always-valid-assumption)
+  - [Latest knowledge assumption](#latest-knowledge-assumption)
+- [Summary](#summary)
+- [Components](#components)
+  - [Primary key and payload](#primary-key-and-payload)
+  - [Valid time](#valid-time-1)
+  - [Recording time](#recording-time-1)
+  - [Read views](#read-views)
+  - [Core bitemporal flow](#core-bitemporal-flow)
+    - [Example](#example)
+<!-- toc:end -->
+
 ## Definitions
 
 ### Valid time 
