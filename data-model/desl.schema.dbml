@@ -1,6 +1,6 @@
 Project DESL {
   database_type: "GenericSQL"
-  Note: "Generated from markdown files in data model."
+  Note: "Generated from markdown files in data-model."
 }
 
 Table Event {

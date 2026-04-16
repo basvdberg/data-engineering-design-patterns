@@ -20,7 +20,7 @@ Project terminology is maintained in `glossary.md`.
 Use the script below to refresh table-of-contents blocks in markdown files that
 already contain a `## Table of contents` section:
 
-`powershell -File scripts/update-markdown-toc.ps1 -Paths "design patterns"`
+`powershell -File scripts/update-markdown-toc.ps1 -Paths "design-patterns"`
 
 To install the git pre-commit hook (one-time per local clone), run:
 
@@ -107,18 +107,18 @@ Implementation follows these concepts:
 - Idempotent orchestration with retries, error handling, and operational traceability.
 - Event-driven control loop (events, rules, templates, queueing, execution).
 
-Detailed schema and table specifications for these concepts are maintained in the `data model` folder.
+Detailed schema and table specifications for these concepts are maintained in the `data-model` folder.
 
 
 # Design patterns
 
 ## Object tree
 
-Object table definitions and column-level details are maintained in the `data model` folder.
+Object table definitions and column-level details are maintained in the `data-model` folder.
 
 ## Object tree properties
 
-Object-property table definitions and column-level details are maintained in the `data model` folder.
+Object-property table definitions and column-level details are maintained in the `data-model` folder.
 
 
 

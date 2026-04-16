@@ -11,7 +11,7 @@
         "-File",
         "${workspaceFolder}/scripts/generate-dbml.ps1",
         "-DataModelPath",
-        "${workspaceFolder}/data model",
+        "${workspaceFolder}/data-model",
         "-OutFile",
         "${workspaceFolder}/build/desl.schema.dbml"
       ],
@@ -29,7 +29,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "& \"${workspaceFolder}/scripts/generate-dbml.ps1\" -DataModelPath \"${workspaceFolder}/data model\" -OutFile \"${workspaceFolder}/build/desl.schema.dbml\"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & \"${workspaceFolder}/scripts/lint-dbml.ps1\" -Path \"${workspaceFolder}/build/desl.schema.dbml\""
+        "& \"${workspaceFolder}/scripts/generate-dbml.ps1\" -DataModelPath \"${workspaceFolder}/data-model\" -OutFile \"${workspaceFolder}/build/desl.schema.dbml\"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & \"${workspaceFolder}/scripts/lint-dbml.ps1\" -Path \"${workspaceFolder}/build/desl.schema.dbml\""
       ],
       "problemMatcher": []
     }

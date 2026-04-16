@@ -1,6 +1,6 @@
 param(
   [Parameter(Mandatory = $false)]
-  [string]$DataModelPath = "data model",
+  [string]$DataModelPath = "data-model",
 
   [Parameter(Mandatory = $false)]
   [string]$OutFile = "build/desl.schema.dbml"
@@ -62,7 +62,7 @@ if (-not (Test-Path -LiteralPath $DataModelPath)) {
 }
 
 $mdFiles = Get-ChildItem -LiteralPath $DataModelPath -File -Filter "*.md" |
-  Where-Object { $_.Name -ne "README.md" } |
+  Where-Object { $_.Name -ne "readme.md" } |
   Sort-Object Name
 
 if ($mdFiles.Count -eq 0) {
@@ -78,7 +78,7 @@ if (-not [string]::IsNullOrWhiteSpace($outDir) -and -not (Test-Path -LiteralPath
 $lines = New-Object System.Collections.Generic.List[string]
 $lines.Add('Project DESL {')
 $lines.Add('  database_type: "GenericSQL"')
-$lines.Add('  Note: "Generated from markdown files in data model."')
+$lines.Add('  Note: "Generated from markdown files in data-model."')
 $lines.Add('}')
 $lines.Add('')
 
