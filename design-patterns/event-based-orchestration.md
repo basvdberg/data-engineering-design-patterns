@@ -3,17 +3,19 @@
 ## Table of contents
 
 <!-- toc:start -->
-- [Purpose](#purpose)
-- [Benefits](#benefits)
-- [Summary](#summary)
-- [Components](#components)
-  - [Event](#event)
-  - [Trigger](#trigger)
-  - [Task](#task)
-    - [TaskDefinition](#taskdefinition)
-    - [TaskInstance](#taskinstance)
-  - [Queue](#queue)
-  - [Core event-driven flow](#core-event-driven-flow)
+- [Event-based orchestration](#event-based-orchestration)
+  - [Table of contents](#table-of-contents)
+  - [Purpose](#purpose)
+  - [Benefits](#benefits)
+  - [Summary](#summary)
+  - [Components](#components)
+    - [Event](#event)
+    - [Trigger](#trigger)
+    - [Task](#task)
+      - [TaskDefinition](#taskdefinition)
+      - [TaskInstance](#taskinstance)
+    - [Queue](#queue)
+    - [Core event-driven flow](#core-event-driven-flow)
 <!-- toc:end -->
 
 ## Purpose
@@ -28,13 +30,26 @@ Orchestration is the central engine that starts processes to read, transform, an
 
 ## Summary
 
-Events trigger tasks, which are queued before execution.
+Events trigger tasks, that are queued for execution. This way we can manage the execution of these tasks. 
+E.g. by prioritizing important tasks over less important tasks, manage compute power and manage long running or failing tasks. 
 
 ## Components
 
 ### Event
 
 The `Event` entity captures every relevant change or process signal that can trigger orchestration. It is the entry point of the pattern and stores the event type, related process lifecycle, identifying attributes of the related data object, and operational metrics.
+**Event types:**  
+  - File write 
+  - Data object incremental update 
+  - Data object rewrite
+  - Data object delete
+  - Data object schema change
+  - Processing error   
+**Process lifecycle:**
+  - Start
+  - Success
+  - Failed
+  - InProgress
 
 Examples:
 - A CSV file has finished uploading to a storage container.
@@ -72,8 +87,6 @@ This is a list of task instances with additional execution attributes:
 - Finish timestamp
 - Retry count
 - Last error message
-
-
 
 ### Core event-driven flow
 
