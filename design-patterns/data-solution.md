@@ -47,5 +47,10 @@ An environment that is less strict and hereby allows you to quickly load and use
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
-    - [Object property tree](object-property-tree.md)
+    - [Data object property tree](object-property-tree.md)
+  - Implementation
+    - Event based orchestration
+      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
 <!-- project-toc:end -->

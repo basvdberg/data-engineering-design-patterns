@@ -4,7 +4,7 @@
 
 <!-- toc:start -->
 - [Purpose](#purpose)
-- [Motivation](#motivation)
+- [Benefits](#benefits)
 - [Summary](#summary)
 - [Components](#components)
   - [Event](#event)
@@ -20,7 +20,7 @@
 
 Orchestration is the central engine that starts processes to read, transform, and write data. Many processes can run at the same time, and there can be many dependencies between processes, or between a process and external events. This design pattern lets you define these processes, dependencies, and events in a declarative way, making it easier to understand and maintain.
 
-## Motivation
+## Benefits
 
 - Maintainability. Because we define orchestration in a declarative way, it is easier to maintain and understand compared to orchestration described in an imperative way (for example, encoded in pipelines or SQL code).
 - Scalability. As the data platform grows, more processes and events run simultaneously, requiring more centralized control and visibility. By decoupling process administration from process execution, it becomes easier to scale and define how processes can be executed in parallel.
@@ -103,6 +103,11 @@ This is a list of task instances with additional execution attributes:
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
-    - [Object property tree](object-property-tree.md)
+    - [Data object property tree](object-property-tree.md)
+  - Implementation
+    - Event based orchestration
+      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
 <!-- project-toc:end -->
 

@@ -83,5 +83,10 @@ Implementation follows these concepts:
     - [Data solution](../design-patterns/data-solution.md)
     - [Event-based orchestration](../design-patterns/event-based-orchestration.md)
     - [Historic bitemporal table](../design-patterns/historic-bitemporal-table.md)
-    - [Object property tree](../design-patterns/object-property-tree.md)
+    - [Data object property tree](../design-patterns/object-property-tree.md)
+  - Implementation
+    - Event based orchestration
+      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
 <!-- project-toc:end -->

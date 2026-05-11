@@ -4,7 +4,7 @@
 
 <!-- toc:start -->
 - [Purpose](#purpose)
-- [Motivation](#motivation)
+- [Benefits](#benefits)
 - [Definitions](#definitions)
   - [Valid time](#valid-time)
   - [Recording time](#recording-time)
@@ -30,7 +30,7 @@ of updating rows in place, each change is captured as a new row so we can
 reconstruct what was valid at a given business time and what was known in the
 system at a given recording time.
 
-## Motivation
+## Benefits
 
 - Auditability. Every change is preserved, making it possible to explain how and when data changed.
 - Historic reporting. It is always possible to reproduce a derived fact. For
@@ -184,5 +184,10 @@ At `2026-02-01 10:00`, value changes from `A` to `B`:
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
-    - [Object property tree](object-property-tree.md)
+    - [Data object property tree](object-property-tree.md)
+  - Implementation
+    - Event based orchestration
+      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
 <!-- project-toc:end -->
