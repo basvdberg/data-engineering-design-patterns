@@ -1,32 +1,12 @@
-Use AI in the Data Engineering process
+# Data Engineering Design Patterns
 
-
-# Goal of this document
-
-Analyze the opportunities that AI introduces in the field of data engineering, with a specific focus on the generation of ETL code. We will focus on the core concepts.
+Reusable design patterns for data engineering, covering data ingestion, transformation, and integration.
 
 # Definitions
 
 ## Business intelligence
 
 Business intelligence (BI) is the process of collecting, analyzing, and presenting business data to help organizations make informed, data-driven decisions. The definition of business intelligence overlaps with data engineering, but a key distinction is that BI includes presenting data to end users, while data engineering focuses on data processing and integration rather than presentation.
-
-## Glossary
-
-Project terminology is maintained in `glossary.md`.
-
-## Markdown table of contents automation
-
-Use the script below to refresh table-of-contents blocks in markdown files that
-already contain a `## Table of contents` section:
-
-`powershell -File scripts/update-markdown-toc.ps1 -Paths "design-patterns"`
-
-To install the git pre-commit hook (one-time per local clone), run:
-
-`powershell -File scripts/install-precommit-hook.ps1`
-
-The hook updates markdown TOCs for staged `.md` files before every commit.
 
 ```mermaid
 flowchart LR
@@ -107,46 +87,6 @@ Implementation follows these concepts:
 - Idempotent orchestration with retries, error handling, and operational traceability.
 - Event-driven control loop (events, rules, templates, queueing, execution).
 
-Detailed schema and table specifications for these concepts are maintained in the `data-model` folder.
-
-
 # Design patterns
 
-## Object tree
-
-Object table definitions and column-level details are maintained in the `data-model` folder.
-
-## Object tree properties
-
-Object-property table definitions and column-level details are maintained in the `data-model` folder.
-
-
-
-## Data Engineering Specification Language (DESL)
-
-In this chapter, we describe what is needed to implement the definitions from the previous chapter. The approach is to define what must be done using a declarative functional language and generate the required code from that definition.
-
-
-## Schema definition language
-
-
-
-### Functional Declarative Language for Data Engineering
-
-### Design goals
-
-- Declarative: describe *what* must happen, not *how* to execute it.
-- Unambiguous for AI/code generators.
-- From this language, an agent should be able to generate code for any orchestration tool (e.g. ADF, Airflow, others) via adapters. The language is orchestration-platform agnostic.
-- Focused on source ingestion.
-- Extensible to future patterns such as event-based processing and incremental loads.
-### Proposal 1
-
-Define DESL as a versioned YAML or JSON schema that describes:
-- data objects (source, raw, integrated),
-- contracts (delivery windows, allowed frequency, SLA),
-- ingestion tasks (interface, retries, idempotency),
-- event triggers and controller rules,
-- validation and quality checks.
-
-Each definition should compile into an intermediate execution plan. Adapters can then translate that plan into orchestration code for a target platform (for example Airflow DAGs or ADF pipelines). This keeps business intent stable while allowing implementation details to vary per platform.
+Design patterns are documented in the `design-patterns` folder.
