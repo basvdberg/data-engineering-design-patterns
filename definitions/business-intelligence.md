@@ -9,16 +9,27 @@ flowchart LR
     SS3([Source System])
     SS4([Source System])
 
-    INS([Insights])
-    IMP([Improved Processes])
+    SS1 --> DE([Data Engineering])
+    SS2 --> DE
+    SS3 --> DE
+    SS4 --> DE
 
-    SS1 --> INS
-    SS2 --> INS
-    SS3 --> INS
-    SS4 --> INS
+    DE --> R([Reporting])
+    DE --> A([Analytics])
+    DE --> M([Monitoring])
 
-    INS --> IMP
+    R --> D([Decisions])
+    A --> D
+    M --> D
 ```
+
+## Applications
+
+| Application | Description |
+| --- | --- |
+| Reporting | Recurring delivery of predefined metrics in a fixed layout. |
+| Analytics | Exploring and analyzing data to discover patterns and forecast outcomes. |
+| Monitoring | Continuous tracking of metrics with alerts when values deviate from expected patterns. |
 
 ## Project table of contents
 

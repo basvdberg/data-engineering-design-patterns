@@ -1,11 +1,11 @@
 # Data engineering
 
-## Functional decomposition of the data engineering process
+## Components
 
 ```mermaid
 flowchart TB
-    SD([Source data]) -->|Ingest source data| RD([Raw data])
-    RD([Raw data]) -->|TransformRawDataIntoIntegratedData| ID([Integrated data])
+    source-data([source-data]) -->|ingest-source-data| raw-data([raw-data])
+    raw-data([raw-data]) -->|transform-raw-data-into-integrated-data| integrated-data([integrated-data])
 ```
 
 ### Ingest source data
@@ -52,7 +52,7 @@ flowchart TB
 | Business rule mapping | Map source status codes to a shared business status model used across applications. |
 | Multi-source integration | Join CRM customer records with billing and support data to produce a unified customer table. |
 
-## Implementation definition
+## Implementation
 
 ### Ingest source data
 
