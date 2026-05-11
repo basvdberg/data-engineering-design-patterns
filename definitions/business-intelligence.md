@@ -1,5 +1,11 @@
 # Business intelligence
 
+## Table of contents
+
+<!-- toc:start -->
+- [Applications](#applications)
+<!-- toc:end -->
+
 Business intelligence (BI) is the process of collecting, analyzing, and presenting business data to help organizations make informed, data-driven decisions. The definition of business intelligence overlaps with data engineering, but a key distinction is that BI includes presenting data to end users, while data engineering focuses on data processing and integration rather than presentation.
 
 ```mermaid

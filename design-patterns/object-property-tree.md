@@ -7,7 +7,7 @@
 - [Benefits](#benefits)
 - [Summary](#summary)
 - [Components](#components)
-  - [Data Object (Obj)](#data-object-obj)
+  - [Data object (Obj)](#data-object-obj)
   - [TableSchema](#tableschema)
   - [Prop](#prop)
   - [ObjProp](#objprop)

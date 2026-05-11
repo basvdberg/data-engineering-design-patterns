@@ -3,19 +3,17 @@
 ## Table of contents
 
 <!-- toc:start -->
-- [Event-based orchestration](#event-based-orchestration)
-  - [Table of contents](#table-of-contents)
-  - [Purpose](#purpose)
-  - [Motivation](#motivation)
-  - [Summary](#summary)
-  - [Components](#components)
-    - [Event](#event)
-    - [Trigger](#trigger)
-    - [Task](#task)
-      - [TaskDefinition](#taskdefinition)
-      - [TaskInstance](#taskinstance)
-    - [Queue](#queue)
-    - [Core event-driven flow](#core-event-driven-flow)
+- [Purpose](#purpose)
+- [Motivation](#motivation)
+- [Summary](#summary)
+- [Components](#components)
+  - [Event](#event)
+  - [Trigger](#trigger)
+  - [Task](#task)
+    - [TaskDefinition](#taskdefinition)
+    - [TaskInstance](#taskinstance)
+  - [Queue](#queue)
+  - [Core event-driven flow](#core-event-driven-flow)
 <!-- toc:end -->
 
 ## Purpose

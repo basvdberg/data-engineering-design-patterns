@@ -1,5 +1,15 @@
 # Data engineering
 
+## Table of contents
+
+<!-- toc:start -->
+- [Components](#components)
+  - [Ingest source data](#ingest-source-data)
+  - [Transform raw data into integrated data](#transform-raw-data-into-integrated-data)
+- [Implementation](#implementation)
+  - [Ingest source data](#ingest-source-data-1)
+<!-- toc:end -->
+
 ## Components
 
 ```mermaid
