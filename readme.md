@@ -3,7 +3,7 @@ Use AI in the Data Engineering process
 
 # Goal of this document
 
-Analyze the opportunities that AI introduces in the field of data engineering, with a specific focus on the generation of ETL code. We will not lose time covering the entire domain; instead, we focus on the core concepts.
+Analyze the opportunities that AI introduces in the field of data engineering, with a specific focus on the generation of ETL code. We will focus on the core concepts.
 
 # Definitions
 

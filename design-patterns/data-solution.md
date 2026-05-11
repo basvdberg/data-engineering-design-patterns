@@ -6,6 +6,7 @@
 - [Requirements](#requirements)
   - [Lineage](#lineage)
   - [Auditability](#auditability)
+  - [Self service environment](#self-service-environment)
 <!-- toc:end -->
 
 # Purpose
@@ -28,3 +29,7 @@ It should be possible to show how every data element is constructed, by showing 
 ## Auditability
 Every read and write of a data element should be logged together with the related user, process and timestamp, so that it's purpose and authority can be verified. 
 
+## Self service environment
+
+**Synonym:** Sandbox environment
+An environment that is less strict and hereby allows you to quickly load and use data. This can be used for ad hoc analysis of a new dataset or for research and development. Because of the lower requirements, this environment cannot be used for non R&D use cases. 

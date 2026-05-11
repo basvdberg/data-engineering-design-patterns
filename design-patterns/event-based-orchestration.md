@@ -6,7 +6,7 @@
 - [Event-based orchestration](#event-based-orchestration)
   - [Table of contents](#table-of-contents)
   - [Purpose](#purpose)
-  - [Benefits](#benefits)
+  - [Motivation](#motivation)
   - [Summary](#summary)
   - [Components](#components)
     - [Event](#event)
@@ -22,7 +22,7 @@
 
 Orchestration is the central engine that starts processes to read, transform, and write data. Many processes can run at the same time, and there can be many dependencies between processes, or between a process and external events. This design pattern lets you define these processes, dependencies, and events in a declarative way, making it easier to understand and maintain.
 
-## Benefits
+## Motivation
 
 - Maintainability. Because we define orchestration in a declarative way, it is easier to maintain and understand compared to orchestration described in an imperative way (for example, encoded in pipelines or SQL code).
 - Scalability. As the data platform grows, more processes and events run simultaneously, requiring more centralized control and visibility. By decoupling process administration from process execution, it becomes easier to scale and define how processes can be executed in parallel.

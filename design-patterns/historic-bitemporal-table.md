@@ -3,25 +3,45 @@
 ## Table of contents
 
 <!-- toc:start -->
-- [Definitions](#definitions)
-  - [Valid time](#valid-time)
-  - [Recording time](#recording-time)
-  - [Synonyms](#synonyms)
-  - [BOT and EOT](#bot-and-eot)
-- [Purpose](#purpose)
-- [Benefits](#benefits)
-- [Assumptions](#assumptions)
-  - [The always valid assumption](#the-always-valid-assumption)
-  - [Latest knowledge assumption](#latest-knowledge-assumption)
-- [Summary](#summary)
-- [Components](#components)
-  - [Primary key and payload](#primary-key-and-payload)
-  - [Valid time](#valid-time-1)
-  - [Recording time](#recording-time-1)
-  - [Read views](#read-views)
-  - [Core bitemporal flow](#core-bitemporal-flow)
-    - [Example](#example)
+- [Historic bitemporal table](#historic-bitemporal-table)
+  - [Table of contents](#table-of-contents)
+  - [Purpose](#purpose)
+  - [Motivation](#motivation)
+  - [Definitions](#definitions)
+    - [Valid time](#valid-time)
+    - [Recording time](#recording-time)
+    - [Synonyms](#synonyms)
+    - [BOT and EOT](#bot-and-eot)
+  - [Assumptions](#assumptions)
+    - [The always valid assumption](#the-always-valid-assumption)
+    - [Latest knowledge assumption](#latest-knowledge-assumption)
+  - [Summary](#summary)
+  - [Components](#components)
+    - [Primary key and payload](#primary-key-and-payload)
+    - [Valid time](#valid-time-1)
+    - [Recording time](#recording-time-1)
+    - [Read views](#read-views)
+    - [Core bitemporal flow](#core-bitemporal-flow)
+      - [Example](#example)
 <!-- toc:end -->
+
+## Purpose
+
+A historic bitemporal table stores both valid time and recording time. Instead
+of updating rows in place, each change is captured as a new row so we can
+reconstruct what was valid at a given business time and what was known in the
+system at a given recording time.
+
+## Motivation
+
+- Auditability. Every change is preserved, making it possible to explain how and when data changed.
+- Historic reporting. It is always possible to reproduce a derived fact. For
+  example, report monthly sales as seen on the first day of the next month,
+  instead of recalculating that same month with today's knowledge.
+- Time-travel analysis. Consumers can query both "what is valid now" and "what
+  was valid at a chosen point in time."
+- Data correction support. Late-arriving or corrected records can be appended without destructive updates.
+- Traceability. Recording time and validity intervals make source-to-target reconciliation easier.
 
 ## Definitions
 
@@ -74,23 +94,6 @@ used for open intervals, for example `1900-01-01` and `2099-01-01`. Fixed
 timestamps are preferred over nulls because they simplify temporal predicates
 and range comparisons.
 
-## Purpose
-
-A historic bitemporal table stores both valid time and recording time. Instead
-of updating rows in place, each change is captured as a new row so we can
-reconstruct what was valid at a given business time and what was known in the
-system at a given recording time.
-
-## Benefits
-
-- Auditability. Every change is preserved, making it possible to explain how and when data changed.
-- Historic reporting. It is always possible to reproduce a derived fact. For
-  example, report monthly sales as seen on the first day of the next month,
-  instead of recalculating that same month with today's knowledge.
-- Time-travel analysis. Consumers can query both "what is valid now" and "what
-  was valid at a chosen point in time."
-- Data correction support. Late-arriving or corrected records can be appended without destructive updates.
-- Traceability. Recording time and validity intervals make source-to-target reconciliation easier.
 ## Assumptions  
 
 ### The always valid assumption
