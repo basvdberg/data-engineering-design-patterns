@@ -94,6 +94,17 @@ This is a list of task instances with additional execution attributes:
 2. After an event is registered, a trigger manager evaluates the triggers related to that event. For each trigger, it creates task instances for all objects specified in the trigger and puts them in the queue.
 3. A queue manager process runs on a heartbeat, for example every 5 minutes, or earlier when the number of new items in the queue is above a configured queue backlog threshold.
 
+## Project table of contents
 
-
+<!-- project-toc:start -->
+- [Data Engineering Design Patterns](../readme.md)
+  - Definitions
+    - [Business intelligence](../definitions/business-intelligence.md)
+    - [Data engineering](../definitions/data-engineering.md)
+  - Design patterns
+    - [Data solution](data-solution.md)
+    - [Event-based orchestration](event-based-orchestration.md)
+    - [Historic bitemporal table](historic-bitemporal-table.md)
+    - [Object property tree](object-property-tree.md)
+<!-- project-toc:end -->
 

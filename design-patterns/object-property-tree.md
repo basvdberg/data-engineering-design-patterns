@@ -89,3 +89,17 @@ This process discovers all objects for a given parent. For example, recursively 
 ### Table schema discovery 
 
 This process extracts the table schema metadata from a relational database.
+
+## Project table of contents
+
+<!-- project-toc:start -->
+- [Data Engineering Design Patterns](../readme.md)
+  - Definitions
+    - [Business intelligence](../definitions/business-intelligence.md)
+    - [Data engineering](../definitions/data-engineering.md)
+  - Design patterns
+    - [Data solution](data-solution.md)
+    - [Event-based orchestration](event-based-orchestration.md)
+    - [Historic bitemporal table](historic-bitemporal-table.md)
+    - [Object property tree](object-property-tree.md)
+<!-- project-toc:end -->

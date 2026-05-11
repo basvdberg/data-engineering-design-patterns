@@ -174,3 +174,17 @@ At `2026-02-01 10:00`, value changes from `A` to `B`:
 | --- | --- | --- | --- | --- |
 | 1 | A | 1900-01-01 | 2026-02-01 10:00 | 2026-01-01 09:00 |
 | 1 | B | 2026-02-01 10:00 | 2099-01-01 | 2026-02-01 10:00 |
+
+## Project table of contents
+
+<!-- project-toc:start -->
+- [Data Engineering Design Patterns](../readme.md)
+  - Definitions
+    - [Business intelligence](../definitions/business-intelligence.md)
+    - [Data engineering](../definitions/data-engineering.md)
+  - Design patterns
+    - [Data solution](data-solution.md)
+    - [Event-based orchestration](event-based-orchestration.md)
+    - [Historic bitemporal table](historic-bitemporal-table.md)
+    - [Object property tree](object-property-tree.md)
+<!-- project-toc:end -->

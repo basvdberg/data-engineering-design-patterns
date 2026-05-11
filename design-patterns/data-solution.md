@@ -32,4 +32,18 @@ Every read and write of a data element should be logged together with the relate
 ## Self service environment
 
 **Synonym:** Sandbox environment
-An environment that is less strict and hereby allows you to quickly load and use data. This can be used for ad hoc analysis of a new dataset or for research and development. Because of the lower requirements, this environment cannot be used for non R&D use cases. 
+An environment that is less strict and hereby allows you to quickly load and use data. This can be used for ad hoc analysis of a new dataset or for research and development. Because of the lower requirements, this environment cannot be used for non R&D use cases.
+
+## Project table of contents
+
+<!-- project-toc:start -->
+- [Data Engineering Design Patterns](../readme.md)
+  - Definitions
+    - [Business intelligence](../definitions/business-intelligence.md)
+    - [Data engineering](../definitions/data-engineering.md)
+  - Design patterns
+    - [Data solution](data-solution.md)
+    - [Event-based orchestration](event-based-orchestration.md)
+    - [Historic bitemporal table](historic-bitemporal-table.md)
+    - [Object property tree](object-property-tree.md)
+<!-- project-toc:end -->
