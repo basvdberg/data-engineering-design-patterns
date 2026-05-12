@@ -44,9 +44,41 @@ This document contains all the prompts used to generate and refine the content i
 
 ## Session 3
 
-1. Include snowflake in the tool choice.
+1. This mermaid is not readable because it's getting too small. Can you generalize this mermaid ?
 
 ## Session 4
+
+1. Add day to prompts markdown and sort by day.
+
+2. Remove the session caption from each group in the prompts markdown, sorted descending so the newest prompts are at the top. Why are my latest prompts not present?
+
+3. Sort the prompts markdown by the timestamp descending.
+
+## Session 5
+
+1. Include snowflake in the tool choice.
+
+## Session 6
+
+1. Create a plan for implementing a sample implementation using data engineering design patterns, based on free data ( e.g. OData). How can we trigger a refresh of this data for example?
+
+2. ELABORATE THIS PLAN USING CBS (Dutch Statistics), Change-Detection Trigger (smarter) AND MAKE USE of Kafka and Apache Airflow
+
+3. create a phase one implementation plan that is scoped on extracting the data from OData using event-based orchestration. Make sure that there is a strict separation between configuration and generic code. For example, the events and scheduling and triggering should all be configured using meta data.
+
+4. change plan to reuse existing PostgreSQL and airflow on basnas. simplify roll out in steps.
+
+5. move phase-one-cbs-odata-extraction to DataEngineeringIn2026 folder. rename to plan1
+
+## Session 7
+
+1. Create a new project called C2H-sales.
+
+## Session 8
+
+1. Explain to me how Apache Airflow can implement the event-based orchestration design pattern.
+
+## Session 9
 
 1. Defineer een naamgeving standaard voor het schrijven van markdown files (kebab case) en folders zodat cursor deze altijd gebrukt in dit project
 
@@ -58,7 +90,13 @@ This document contains all the prompts used to generate and refine the content i
 
 5. Doe maar een Azure-variant.
 
-## Session 5
+## Session 10
+
+1. Create a sample implementation of the event-based orchestration design pattern based on Free OData Data from  the dutch government using Apache Airflow and Kafka. Make sure that the data is automtically fetched daily only when changed. Use PostgressSQL to implement the Object-Property tree design pattern to store all configuration. Keep strict separation of code versus configuration. Try to make the implementation as simple as possible. Start by creating a document called plan2.md. Create rollout plan in steps.
+
+2. create a plan 3 based on plan  2 but replace the object property tree with a json following this schema https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json
+
+## Session 11
 
 1. The description for Object property tree in the readme in the root of the sign patterns is wrong.
 
@@ -92,3 +130,28 @@ This document contains all the prompts used to generate and refine the content i
 14. Change cursor + python into self-built elaborate on this option by specifying the recommended libraries and languages to use for setting up an orchestration tool from scratch.
 
 15. Add a recommendation at the bottom.
+
+## Session 12
+
+1. Explain this schema:
+https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json  
+The related doc is here:https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/docs/overview/Index.md 
+My question is: why does it say "required": [
+    "dataObjectMappings"
+  ],
+while the documentation speaks about dataObject ? 
+
+does this json follow the schema? Does it validate?
+@DataEngineeringIn2026/sample.json
+
+2. Create a schema for @DataEngineeringIn2026/sample.json
+
+3. yes for both. also create a Markdown file for follow-up tasks like specifying data types, classifications, and extensions.
+
+4. How can I view the history of @DataEngineeringIn2026/sample.json ?
+
+## Session 13
+
+1. validate @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/000_Source/dbo/CUSTOMER_OFFER.json against @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/data-objects.schema.json
+
+2. Update the schema to a single Data Object per file.

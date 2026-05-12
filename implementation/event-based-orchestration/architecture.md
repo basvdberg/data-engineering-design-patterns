@@ -32,16 +32,12 @@ Define a production-ready architecture for event-based orchestration in data eng
 
 ```mermaid
 flowchart LR
-    A[Source systems] --> B[Ingestion adapters]
-    B --> C[Event bus]
-    C --> D[Event registry + schema validation]
-    D --> E[Controller rules engine]
-    E --> F[Execution queue]
-    F --> G[Orchestrator workers]
-    G --> H[Data platform targets]
-    G --> I[Run metadata store]
-    G --> J[Observability stack]
-    E --> I
+    A[Event producers] --> B[Event bus]
+    B --> C[Control plane]
+    C --> D[Execution layer]
+    D --> E[Data platform targets]
+    D --> F[Observability + metadata]
+    C --> F
 ```
 
 ## Core components
