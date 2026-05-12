@@ -176,4 +176,8 @@ Every event should contain:
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
+    - Full data solution
+      - [Phase one: CBS OData extraction with event-based orchestration](../full-data-solution/plan1.md)
+      - [Phase two: minimal Dutch government OData ingestion with event-based orchestration](../full-data-solution/plan2.md)
+      - [Phase three: JSON-configured Dutch government OData ingestion](../full-data-solution/plan3.md)
 <!-- project-toc:end -->

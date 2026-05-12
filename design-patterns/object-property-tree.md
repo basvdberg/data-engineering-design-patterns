@@ -107,4 +107,8 @@ This process extracts the table schema metadata from a relational database.
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
+    - Full data solution
+      - [Phase one: CBS OData extraction with event-based orchestration](../implementation/full-data-solution/plan1.md)
+      - [Phase two: minimal Dutch government OData ingestion with event-based orchestration](../implementation/full-data-solution/plan2.md)
+      - [Phase three: JSON-configured Dutch government OData ingestion](../implementation/full-data-solution/plan3.md)
 <!-- project-toc:end -->

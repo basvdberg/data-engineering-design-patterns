@@ -4,6 +4,20 @@ This document contains all the prompts used to generate and refine the content i
 
 ## Session 1
 
+1. Show me all datasets that you can extract using the WFS extractor, with, if possible, a description.
+
+2. Extract the Temperature dataset. Try to find an explanation of all the columns or data items.
+
+3. Briefly inform the user about the task result and perform any follow-up actions (if needed).
+
+4. Change the source system name of point time series observation to KNMI and change the table name into dagegevens_temperature.Update folder structure under data. Add data items to knmi JSON file using the above found columns. Try to include all descriptions that you found above.
+
+5. Yes, please create this repo using the same name as this project.
+
+6. Do the same for data engineering design patterns.
+
+## Session 2
+
 1. I have renamed the Github repository to Data Engineering Design Patterns. Could you update my solution?
 
 2. My solution contains several projects. I want to publish the Data Engineering Design Patterns project to a GitHub repo.
@@ -36,17 +50,17 @@ This document contains all the prompts used to generate and refine the content i
 
 16. Make sure that you use the naming convention. For example, event-based-orchestration should be separated by a dash.
 
-## Session 2
+## Session 3
 
 1. do not include the tittle in the toc
 
 2. do this when generating toc everywhere
 
-## Session 3
+## Session 4
 
 1. This mermaid is not readable because it's getting too small. Can you generalize this mermaid ?
 
-## Session 4
+## Session 5
 
 1. Add day to prompts markdown and sort by day.
 
@@ -54,11 +68,11 @@ This document contains all the prompts used to generate and refine the content i
 
 3. Sort the prompts markdown by the timestamp descending.
 
-## Session 5
+## Session 6
 
 1. Include snowflake in the tool choice.
 
-## Session 6
+## Session 7
 
 1. Create a plan for implementing a sample implementation using data engineering design patterns, based on free data ( e.g. OData). How can we trigger a refresh of this data for example?
 
@@ -70,15 +84,15 @@ This document contains all the prompts used to generate and refine the content i
 
 5. move phase-one-cbs-odata-extraction to DataEngineeringIn2026 folder. rename to plan1
 
-## Session 7
+## Session 8
 
 1. Create a new project called C2H-sales.
 
-## Session 8
+## Session 9
 
 1. Explain to me how Apache Airflow can implement the event-based orchestration design pattern.
 
-## Session 9
+## Session 10
 
 1. Defineer een naamgeving standaard voor het schrijven van markdown files (kebab case) en folders zodat cursor deze altijd gebrukt in dit project
 
@@ -90,13 +104,13 @@ This document contains all the prompts used to generate and refine the content i
 
 5. Doe maar een Azure-variant.
 
-## Session 10
+## Session 11
 
 1. Create a sample implementation of the event-based orchestration design pattern based on Free OData Data from  the dutch government using Apache Airflow and Kafka. Make sure that the data is automtically fetched daily only when changed. Use PostgressSQL to implement the Object-Property tree design pattern to store all configuration. Keep strict separation of code versus configuration. Try to make the implementation as simple as possible. Start by creating a document called plan2.md. Create rollout plan in steps.
 
 2. create a plan 3 based on plan  2 but replace the object property tree with a json following this schema https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json
 
-## Session 11
+## Session 12
 
 1. The description for Object property tree in the readme in the root of the sign patterns is wrong.
 
@@ -131,7 +145,7 @@ This document contains all the prompts used to generate and refine the content i
 
 15. Add a recommendation at the bottom.
 
-## Session 12
+## Session 13
 
 1. Explain this schema:
 https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json  
@@ -150,8 +164,48 @@ does this json follow the schema? Does it validate?
 
 4. How can I view the history of @DataEngineeringIn2026/sample.json ?
 
-## Session 13
+## Session 14
 
 1. validate @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/000_Source/dbo/CUSTOMER_OFFER.json against @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/data-objects.schema.json
 
 2. Update the schema to a single Data Object per file.
+
+3. yes to all
+
+4. kafka is running on basnas on port 9092, airflow is running on same server on port 8081. Implement plan3 the first step, which consists of extracting a dataset from OData site.
+
+5. Am I using venv?
+
+6. Create an extractor folder. For each extractor subtype, create a sub-folder, and specifically for the following website, create an extractor.https://haleconnect.com/ows/services/org.874.cb9ca55e-f4e7-4bd8-a02e-75d528e22118_wfs/org.874.794fa9da-8bf0-4053-83d8-1174f2317dcb?SERVICE=WFS&Request=GetCapabilities
+
+7. According to my knowledge WFS does support pagination via startIndex
+
+8. According to my knowledge WFS does support pagination via startIndex
+
+9. Move the WFS extractor logic to the following folder data-engineering-design-patterns\implementation\full-data-solution\adl\Extractors  and move the @data-engineering-design-patterns/implementation/full-data-solution/dutch-odata-json/config/knmi-daggegevens.jsonfile into the data object mapping subfolder.
+
+10. Create a @data-engineering-design-patterns/implementation/full-data-solution/dutch-odata-json/README.md  under the ADL folder that summarizes what ADL is using the following reference. Also include this reference:https://docs.agnosticdatalabs.com/docs/
+
+11. What's the meaning of _PyCache?
+
+12. Create a README that explains the extractors folder and another readme specifically for the WFS extractor.
+
+13. remove @data-engineering-design-patterns/implementation/full-data-solution/dutch-odata-json and all references to this folder. move the things that you need to this new location. @data-engineering-design-patterns/implementation/full-data-solution/adl/Extractors
+
+14. Data should go to the Data folder with a capital D under ADL. Please try to get rid of the Scripts folder and move the code to the corresponding Extractors.
+
+15. Briefly inform the user about the task result and perform any follow-up actions (if needed).
+
+16. Can I have multiple projects in this solution, each with its own git repo?
+
+17. Option two. And create a new project from the implementation subfolder. Rename this into data solution 2026.
+
+18. check and finish @data-solution-2026/README.md
+
+19. Please check and complete my bullets. For example, look up the authors for data engine thinking.
+
+20. Synchronize the folder structure under data to be identical to data objects.So bronze should become 000_source.
+
+21. Synchronize the folder structure under data to be identical to data objects.So bronze should become 000_source.
+
+22. Omit the extractor name in the folder naming under data. Specifically, remove odata demo.
