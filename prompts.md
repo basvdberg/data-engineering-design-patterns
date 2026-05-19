@@ -16,6 +16,32 @@ This document contains all the prompts used to generate and refine the content i
 
 6. Do the same for data engineering design patterns.
 
+7. Make sure that Data Object mapping is using the same folder structure as data, so the KNMI mapping should fall under 0000_source/knmi.
+
+8. Do the same for Northwind.
+
+9. The name of the Northwind table should be regions and not odata-demo.
+
+10. Include the data folder in GitHub.
+
+11. Suppose we run the extractor twice on a single day, and suppose the data sets differ. I do not want to overwrite the previous data set, so could you come up with a solution for making these data sets unique?
+
+12. I prefer a timestamp suffix, but let's decide what's the best date-timestamp format standard.
+
+13. A, but also includes the milliseconds
+
+14. I prefer a timestamp suffix, but let's decide what's the best date-timestamp format standard.
+
+15. A, but also includes the milliseconds
+
+16. A, but also includes the milliseconds
+
+17. re-ask last question
+
+18. yes, but also includes the milliseconds
+
+19. Yes, please add the above explanation to the documentation.Also make sure that this time stamp is equal to the moment that the extractor starts.
+
 ## Session 2
 
 1. I have renamed the Github repository to Data Engineering Design Patterns. Could you update my solution?
@@ -74,6 +100,37 @@ This document contains all the prompts used to generate and refine the content i
 
 ## Session 7
 
+1. @data-solution-2026/Data/000_Source/KNMI/daggegevens_temperature/2026-05-12.parquet The period Begin data items seems to be incorrect since it refers to 1951. Could you troubleshoot the extractor to see if there might be a bug in the implementation? Could you show me the raw data as it comes from the source?
+
+2. Create a concept version of the architecture paragraph. Make sure to include a high-level Mermaid diagram.
+
+3. Please add a second diagram for the full architecture using Kafka and Airflow.
+
+4. After the Purpose paragraph, create a new paragraph called Summary. It should contain the following text. This proof of concept showed me the following things, categorized per innovation; Code generation using Gen-I/I in data engineering; how easy you can generate the code for extracting data from a data source that has a well-defined API.
+Two ways of working:
+1. Changes: I think the best way of working is to start defining what needs to be done via prompting and generation of markdown documentation before actually starting the implementation.
+2. Three: Using new tools with no prior experience becomes easier because AI can help you to write the code and explain how a tool can integrate into your architecture. This allows for a more technology-agnostic architecture.
+
+5. Review the summary and also improve the layouts.
+
+6. Create a new concept version of this README file that is much simpler than the current version.
+- Simplify by removing CBS OData and Northwind demo.
+- Replace Mermaid diagrams by a better, simplified high-level architectural diagram.
+- Focus on only implementing a proof concept for the staging layer using Airflow and Kafka, and, of course, the agnostic data labs and DSA metadata schema and data engineering design patterns.Merge the Architecture paragraph with the Orchestrated Ingestion paragraph.
+
+7. Create a new concept version of this README file that is much simpler than the current version.
+- Simplify by removing CBS OData and Northwind demo.
+- Replace Mermaid diagrams by a better, simplified high-level architectural diagram.
+- The purpose and summary should say the same, but implementation should Focus on implementing a proof concept for the staging layer using Airflow and Kafka, and, of course, the agnostic data labs and DSA metadata schema and data engineering design patterns.Merge the Architecture paragraph with the Orchestrated Ingestion paragraph.
+
+8. Create a new markdown file under Data Engineering Design Patterns, under the folder Design Patterns.
+
+Replace this text in the current readme 'Calls separate what from how. Configuration vs code: anything source-specific (URL, paging, landing path, staging table) lives in DSA metadata extensions; the DAGs and the extractor stay protocol-generic.' With this reference to this design pattern, try to describe this design pattern similarly to the other design patterns.
+
+9. Rewrite this configuration-vs-code design pattern. It should be named "Separate What and How", and it should be much more generic, not specifically for data solution but for any solution. It should describe that it's useful to separate functionality in a descriptive manner from implementation, which is imperative. This is because there is a one-to-many relationship between the two, because a specific functionality can be implemented in many ways.
+
+## Session 8
+
 1. Create a plan for implementing a sample implementation using data engineering design patterns, based on free data ( e.g. OData). How can we trigger a refresh of this data for example?
 
 2. ELABORATE THIS PLAN USING CBS (Dutch Statistics), Change-Detection Trigger (smarter) AND MAKE USE of Kafka and Apache Airflow
@@ -84,15 +141,15 @@ This document contains all the prompts used to generate and refine the content i
 
 5. move phase-one-cbs-odata-extraction to DataEngineeringIn2026 folder. rename to plan1
 
-## Session 8
+## Session 9
 
 1. Create a new project called C2H-sales.
 
-## Session 9
+## Session 10
 
 1. Explain to me how Apache Airflow can implement the event-based orchestration design pattern.
 
-## Session 10
+## Session 11
 
 1. Defineer een naamgeving standaard voor het schrijven van markdown files (kebab case) en folders zodat cursor deze altijd gebrukt in dit project
 
@@ -104,13 +161,13 @@ This document contains all the prompts used to generate and refine the content i
 
 5. Doe maar een Azure-variant.
 
-## Session 11
+## Session 12
 
 1. Create a sample implementation of the event-based orchestration design pattern based on Free OData Data from  the dutch government using Apache Airflow and Kafka. Make sure that the data is automtically fetched daily only when changed. Use PostgressSQL to implement the Object-Property tree design pattern to store all configuration. Keep strict separation of code versus configuration. Try to make the implementation as simple as possible. Start by creating a document called plan2.md. Create rollout plan in steps.
 
 2. create a plan 3 based on plan  2 but replace the object property tree with a json following this schema https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json
 
-## Session 12
+## Session 13
 
 1. The description for Object property tree in the readme in the root of the sign patterns is wrong.
 
@@ -145,7 +202,7 @@ This document contains all the prompts used to generate and refine the content i
 
 15. Add a recommendation at the bottom.
 
-## Session 13
+## Session 14
 
 1. Explain this schema:
 https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json  
@@ -164,7 +221,7 @@ does this json follow the schema? Does it validate?
 
 4. How can I view the history of @DataEngineeringIn2026/sample.json ?
 
-## Session 14
+## Session 15
 
 1. validate @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/000_Source/dbo/CUSTOMER_OFFER.json against @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/data-objects.schema.json
 
