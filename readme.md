@@ -12,7 +12,7 @@
 Design patterns describe functionality in a descriptive, technology-agnostic way. The main reasons for doing this are:
 
 - It gives you a vocabulary to discuss frameworks, tools, platforms and data solutions. Using this you can compare them.
-- You can design a technology-agnostic data solution, making it more robuust to technology changes.
+- You can design a technology-agnostic data solution, making it more robust to technology changes.
 - It can be used as a blueprint for AI generation of the underlying code in any desired language or tool. You can select the patterns that you need for your data solution.
 
 ## Disclaimer
