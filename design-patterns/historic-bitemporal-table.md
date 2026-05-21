@@ -191,4 +191,8 @@ At `2026-02-01 10:00`, value changes from `A` to `B`:
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
+- Related repositories
+  - [cursor-config](https://github.com/basvdberg/cursor-config)
+  - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026)
+  - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026)
 <!-- markdown-project-structure:end -->

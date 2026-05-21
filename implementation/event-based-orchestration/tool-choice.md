@@ -208,4 +208,8 @@ For this use case (event-based orchestration plus broad connectivity across file
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
+- Related repositories
+  - [cursor-config](https://github.com/basvdberg/cursor-config)
+  - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026)
+  - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026)
 <!-- markdown-project-structure:end -->
