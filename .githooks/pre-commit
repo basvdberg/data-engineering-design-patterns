@@ -1,13 +1,21 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+# Run repository pre-commit checks (Markdown docs, naming, prompts).
+set -e
 
-if command -v pwsh >/dev/null 2>&1; then
-  pwsh -NoProfile -ExecutionPolicy Bypass -File "scripts/update-markdown-toc.ps1" -StagedOnly
-elif command -v powershell >/dev/null 2>&1; then
-  powershell -NoProfile -ExecutionPolicy Bypass -File "scripts/update-markdown-toc.ps1" -StagedOnly
-else
-  echo "PowerShell not found. Skipping markdown TOC update."
-  exit 0
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+PYTHON=""
+for candidate in python3 python py; do
+  if command -v "$candidate" >/dev/null 2>&1; then
+    PYTHON="$candidate"
+    break
+  fi
+done
+
+if [ -z "$PYTHON" ]; then
+  echo "pre-commit: python not found" >&2
+  exit 1
 fi
 
-git add -A -- '*.md'
+"$PYTHON" scripts/pre-commit.py

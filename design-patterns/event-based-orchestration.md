@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Benefits](#benefits)
 - [Summary](#summary)
@@ -14,7 +14,7 @@
     - [TaskInstance](#taskinstance)
   - [Queue](#queue)
   - [Core event-driven flow](#core-event-driven-flow)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -92,9 +92,9 @@ This is a list of task instances with additional execution attributes:
 2. After an event is registered, a trigger manager evaluates the triggers related to that event. For each trigger, it creates task instances for all objects specified in the trigger and puts them in the queue.
 3. A queue manager process runs on a heartbeat, for example every 5 minutes, or earlier when the number of new items in the queue is above a configured queue backlog threshold.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](../definitions/business-intelligence.md)
@@ -106,9 +106,8 @@ This is a list of task instances with additional execution attributes:
     - [Data object property tree](object-property-tree.md)
     - [Separate what and how](separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
-
+<!-- markdown-project-structure:end -->

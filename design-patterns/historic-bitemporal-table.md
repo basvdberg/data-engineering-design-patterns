@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Benefits](#benefits)
 - [Definitions](#definitions)
@@ -16,12 +16,12 @@
 - [Summary](#summary)
 - [Components](#components)
   - [Primary key and payload](#primary-key-and-payload)
-  - [Valid time](#valid-time-1)
-  - [Recording time](#recording-time-1)
+  - [Valid time](#valid-time)
+  - [Recording time](#recording-time)
   - [Read views](#read-views)
   - [Core bitemporal flow](#core-bitemporal-flow)
     - [Example](#example)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -173,9 +173,9 @@ At `2026-02-01 10:00`, value changes from `A` to `B`:
 | 1 | A | 1900-01-01 | 2026-02-01 10:00 | 2026-01-01 09:00 |
 | 1 | B | 2026-02-01 10:00 | 2099-01-01 | 2026-02-01 10:00 |
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](../definitions/business-intelligence.md)
@@ -187,8 +187,8 @@ At `2026-02-01 10:00`, value changes from `A` to `B`:
     - [Data object property tree](object-property-tree.md)
     - [Separate what and how](separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

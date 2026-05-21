@@ -2,19 +2,23 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Recommended Azure stack](#recommended-azure-stack)
 - [High-level architecture](#high-level-architecture)
 - [Event and command model](#event-and-command-model)
+  - [Event envelope (from producers)](#event-envelope-from-producers)
+  - [Command envelope (to execution queue)](#command-envelope-to-execution-queue)
 - [Reference flow](#reference-flow)
 - [Airflow on Azure: most practical setup](#airflow-on-azure-most-practical-setup)
 - [Network and security baseline](#network-and-security-baseline)
 - [Reliability and operations](#reliability-and-operations)
 - [Deployment model](#deployment-model)
+  - [Environments](#environments)
+  - [IaC and release](#iac-and-release)
 - [Minimal implementation backlog](#minimal-implementation-backlog)
 - [Decision notes](#decision-notes)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -141,9 +145,9 @@ flowchart LR
 - Choose `Service Bus` for command-style orchestration with retries, ordering controls, and DLQ.
 - Use both together when you need streaming ingestion plus reliable task dispatch.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../../readme.md)
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
@@ -155,8 +159,8 @@ flowchart LR
     - [Data object property tree](../../design-patterns/object-property-tree.md)
     - [Separate what and how](../../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

@@ -2,12 +2,12 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Benefits](#benefits)
 - [Summary](#summary)
 - [Components](#components)
-  - [Data object (Obj)](#data-object-obj)
+  - [Data Object (Obj)](#data-object-obj)
   - [TableSchema](#tableschema)
   - [Prop](#prop)
   - [ObjProp](#objprop)
@@ -15,7 +15,7 @@
 - [Processes](#processes)
   - [Object discovery](#object-discovery)
   - [Table schema discovery](#table-schema-discovery)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -90,9 +90,9 @@ This process discovers all objects for a given parent. For example, recursively 
 
 This process extracts the table schema metadata from a relational database.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](../definitions/business-intelligence.md)
@@ -104,8 +104,8 @@ This process extracts the table schema metadata from a relational database.
     - [Data object property tree](object-property-tree.md)
     - [Separate what and how](separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

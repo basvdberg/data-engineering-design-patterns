@@ -1,19 +1,28 @@
 # Tool choice for a data warehouse orchestration tool
 
-## Purpose
-
-This document helps select a data warehouse orchestration tool, ETL tool, ELT tool, workflow orchestrator, pipeline engine, or data integration platform.
-
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Top-level functionalities](#top-level-functionalities)
+  - [1. Workflow orchestration](#1-workflow-orchestration)
+  - [2. Execution model](#2-execution-model)
+  - [3. Connectivity and network](#3-connectivity-and-network)
+  - [4. Data movement and transformation](#4-data-movement-and-transformation)
+  - [5. Metadata and schema handling](#5-metadata-and-schema-handling)
+  - [6. Security and governance](#6-security-and-governance)
+  - [7. Operations and observability](#7-operations-and-observability)
+  - [8. Platform and engineering fit](#8-platform-and-engineering-fit)
 - [Scoring legend](#scoring-legend)
 - [Tool scoring matrix](#tool-scoring-matrix)
 - [Self-built option (from scratch)](#self-built-option-from-scratch)
 - [Interpretation notes](#interpretation-notes)
-<!-- toc:end -->
+- [Recommendation](#recommendation)
+<!-- markdown-toc:end -->
+
+## Purpose
+
+This document helps select a data warehouse orchestration tool, ETL tool, ELT tool, workflow orchestrator, pipeline engine, or data integration platform.
 
 ## Top-level functionalities
 
@@ -181,9 +190,9 @@ For this use case (event-based orchestration plus broad connectivity across file
 5. **If your center of gravity is already in Snowflake and transformations are SQL-first:** choose `Snowflake` (Tasks, Streams, Dynamic Tables), and pair it with an external ingestion tool for broader source connectivity.
 6. **If you need fastest time-to-value with minimal engineering effort:** consider `Informatica IDMC` or `Fivetran`, accepting higher license costs.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../../readme.md)
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
@@ -195,8 +204,8 @@ For this use case (event-based orchestration plus broad connectivity across file
     - [Data object property tree](../../design-patterns/object-property-tree.md)
     - [Separate what and how](../../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

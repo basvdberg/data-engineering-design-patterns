@@ -2,9 +2,12 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
+- [Definition](#definition)
 - [Applications](#applications)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
+
+## Definition
 
 Business intelligence (BI) is the process of collecting, analyzing, and presenting business data to help organizations make informed, data-driven decisions. The definition of business intelligence overlaps with data engineering, but a key distinction is that BI includes presenting data to end users, while data engineering focuses on data processing and integration rather than presentation.
 
@@ -37,9 +40,9 @@ flowchart LR
 | Analytics | Exploring and analyzing data to discover patterns and forecast outcomes. |
 | Monitoring | Continuous tracking of metrics with alerts when values deviate from expected patterns. |
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](business-intelligence.md)
@@ -51,8 +54,8 @@ flowchart LR
     - [Data object property tree](../design-patterns/object-property-tree.md)
     - [Separate what and how](../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

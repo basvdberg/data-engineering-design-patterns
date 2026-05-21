@@ -1,0 +1,7 @@
+{
+  "definitions": "Glossary of data engineering and BI terms",
+  "design-patterns": "Technology-agnostic pattern specifications",
+  "implementation": "Reference implementations of selected patterns",
+  "implementation/event-based-orchestration": "Event-based orchestration examples and tool notes",
+  "scripts": "Pre-commit checks and markdown automation"
+}

@@ -2,13 +2,19 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Components](#components)
   - [Ingest source data](#ingest-source-data)
+    - [Definition](#definition)
+    - [Rationale](#rationale)
+    - [Examples](#examples)
   - [Transform raw data into integrated data](#transform-raw-data-into-integrated-data)
+    - [Definition](#definition)
+    - [Rationale](#rationale)
+    - [Examples](#examples)
 - [Implementation](#implementation)
-  - [Ingest source data](#ingest-source-data-1)
-<!-- toc:end -->
+  - [Ingest source data](#ingest-source-data)
+<!-- markdown-toc:end -->
 
 ## Components
 
@@ -72,9 +78,9 @@ Implementation follows these concepts:
 - Idempotent orchestration with retries, error handling, and operational traceability.
 - Event-driven control loop (events, rules, templates, queueing, execution).
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](business-intelligence.md)
@@ -86,8 +92,8 @@ Implementation follows these concepts:
     - [Data object property tree](../design-patterns/object-property-tree.md)
     - [Separate what and how](../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

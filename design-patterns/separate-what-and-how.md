@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Benefits](#benefits)
 - [Summary](#summary)
@@ -16,7 +16,7 @@
   - [Implementation is imperative](#implementation-is-imperative)
   - [No implementation details in the specification](#no-implementation-details-in-the-specification)
   - [One specification, many implementations](#one-specification-many-implementations)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -95,9 +95,9 @@ A specification must not name specific tools, libraries, vendors, or algorithms.
 
 If the same specification cannot, in principle, be realised by more than one implementation, the specification is too tightly coupled to a single platform. Either the specification leaks implementation details, or what looks like a specification is really an implementation in disguise.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](../definitions/business-intelligence.md)
@@ -109,8 +109,8 @@ If the same specification cannot, in principle, be realised by more than one imp
     - [Data object property tree](object-property-tree.md)
     - [Separate what and how](separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

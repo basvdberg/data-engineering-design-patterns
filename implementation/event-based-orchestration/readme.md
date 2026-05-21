@@ -2,10 +2,10 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Documents](#documents)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -19,9 +19,9 @@ This folder contains implementation guidance for the [event-based-orchestration]
 | [Architecture](architecture.md) | Defines a platform-independent reference architecture for event-based orchestration, including core components (event bus, rules engine, execution queue, workers), event contracts, reliability patterns, and a phased rollout plan. |
 | [Azure architecture](azure-architecture.md) | Maps the reference architecture to a concrete Azure stack using Event Hubs, Service Bus, Airflow on AKS, Databricks, and PostgreSQL. Includes network and security baseline, deployment model, and an implementation backlog. |
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../../readme.md)
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
@@ -33,8 +33,8 @@ This folder contains implementation guidance for the [event-based-orchestration]
     - [Data object property tree](../../design-patterns/object-property-tree.md)
     - [Separate what and how](../../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

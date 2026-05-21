@@ -2,14 +2,14 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Components](#components)
 - [Requirements](#requirements)
   - [Lineage](#lineage)
   - [Auditability](#auditability)
   - [Self service environment](#self-service-environment)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -36,9 +36,9 @@ Every read and write of a data element should be logged together with the relate
 **Synonym:** Sandbox environment
 An environment that is less strict and hereby allows you to quickly load and use data. This can be used for ad hoc analysis of a new dataset or for research and development. Because of the lower requirements, this environment cannot be used for non R&D use cases.
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../readme.md)
   - Definitions
     - [Business intelligence](../definitions/business-intelligence.md)
@@ -50,8 +50,8 @@ An environment that is less strict and hereby allows you to quickly load and use
     - [Data object property tree](object-property-tree.md)
     - [Separate what and how](separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->

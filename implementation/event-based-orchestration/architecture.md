@@ -2,19 +2,29 @@
 
 ## Table of contents
 
-<!-- toc:start -->
+<!-- markdown-toc:start -->
 - [Purpose](#purpose)
 - [Architecture goals](#architecture-goals)
 - [High-level architecture](#high-level-architecture)
 - [Core components](#core-components)
+  - [1) Event producers](#1-event-producers)
+  - [2) Event bus](#2-event-bus)
+  - [3) Event registry and schema validation](#3-event-registry-and-schema-validation)
+  - [4) Controller rules engine](#4-controller-rules-engine)
+  - [5) Execution queue](#5-execution-queue)
+  - [6) Orchestrator workers](#6-orchestrator-workers)
+  - [7) Metadata and observability](#7-metadata-and-observability)
 - [Event contract (minimum)](#event-contract-minimum)
 - [Reference processing flow](#reference-processing-flow)
 - [Reliability patterns](#reliability-patterns)
 - [Security and governance](#security-and-governance)
 - [Recommended implementation stack](#recommended-implementation-stack)
 - [Phased rollout plan](#phased-rollout-plan)
+  - [Phase 1 - Foundation](#phase-1-foundation)
+  - [Phase 2 - Orchestration control loop](#phase-2-orchestration-control-loop)
+  - [Phase 3 - Hardening](#phase-3-hardening)
 - [Definition of done](#definition-of-done)
-<!-- toc:end -->
+<!-- markdown-toc:end -->
 
 ## Purpose
 
@@ -159,9 +169,9 @@ Every event should contain:
 - Replay procedure is documented and validated
 - Security controls (RBAC, secrets, audit) are enabled in production
 
-## Project table of contents
+## Project structure
 
-<!-- project-toc:start -->
+<!-- markdown-project-structure:start -->
 - [Data Engineering Design Patterns](../../readme.md)
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
@@ -173,8 +183,8 @@ Every event should contain:
     - [Data object property tree](../../design-patterns/object-property-tree.md)
     - [Separate what and how](../../design-patterns/separate-what-and-how.md)
   - Implementation
-    - Event based orchestration
+    - Event Based Orchestration
       - [Event-based orchestration architecture](architecture.md)
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
-<!-- project-toc:end -->
+<!-- markdown-project-structure:end -->
