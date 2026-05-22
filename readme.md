@@ -7,13 +7,15 @@
 - [Disclaimer](#disclaimer)
 <!-- markdown-toc:end -->
 
-## Purpose 
+## Purpose
 
-Design patterns describe functionality in a descriptive, technology-agnostic way. The main reasons for doing this are:
+Design patterns describe functionality in a descriptive, technology-agnostic way. They support the way of working in [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) and are applied in the [data-solution-2026](https://github.com/basvdberg/data-solution-2026) proof of concept.
 
-- It gives you a vocabulary to discuss frameworks, tools, platforms and data solutions. Using this you can compare them.
-- You can design a technology-agnostic data solution, making it more robust to technology changes.
-- It can be used as a blueprint for AI generation of the underlying code in any desired language or tool. You can select the patterns that you need for your data solution.
+The main reasons to document patterns this way are:
+
+- They can be used as blueprints for AI generation of underlying code in any language or tool. Select the patterns you need for your data solution.
+- They provide a vocabulary to discuss frameworks, tools, platforms, and data solutions—and to compare them.
+- They help you design a technology-agnostic data solution that is more robust to technology changes.
 
 ## Disclaimer
 
