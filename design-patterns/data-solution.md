@@ -44,6 +44,8 @@ An environment that is less strict and hereby allows you to quickly load and use
     - [Business intelligence](../definitions/business-intelligence.md)
     - [Data engineering](../definitions/data-engineering.md)
   - Design patterns
+    - [Data extractor](data-extractor.md)
+    - [Data object poller](data-object-poller.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)

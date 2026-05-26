@@ -27,6 +27,8 @@ This folder contains implementation guidance for the [event-based-orchestration]
     - [Business intelligence](../../definitions/business-intelligence.md)
     - [Data engineering](../../definitions/data-engineering.md)
   - Design patterns
+    - [Data extractor](../../design-patterns/data-extractor.md)
+    - [Data object poller](../../design-patterns/data-object-poller.md)
     - [Data solution](../../design-patterns/data-solution.md)
     - [Event-based orchestration](../../design-patterns/event-based-orchestration.md)
     - [Historic bitemporal table](../../design-patterns/historic-bitemporal-table.md)

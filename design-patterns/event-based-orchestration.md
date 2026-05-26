@@ -42,6 +42,8 @@ The `Event` entity captures every relevant change or process signal that can tri
   - Data object rewrite
   - Data object delete
   - Data object schema change
+  - **Data object change** — a polled or observed data object has a new change marker (for example a new file name, observation day, or `lastModified` value); downstream work such as extraction may be scheduled
+  - **Data object progress** — a poll or check completed successfully and the change marker is unchanged; signals liveness and auditability without starting downstream work
   - Processing error   
 **Process lifecycle:**
   - Start
@@ -53,6 +55,8 @@ Examples:
 - A CSV file has finished uploading to a storage container.
 - A Delta table was successfully updated with today's increment.
 - A schema was changed in a production database that delivers data to us.
+- A [data object poller](data-object-poller.md) detected a new source marker and published **data object change**.
+- The same poller ran on schedule, found no marker change, and published **data object progress** so operators know polling is healthy.
 - A long-running ingestion emits periodic updates with a progress percentage.
 - A network error caused a Parquet file write to be rolled back.
 - A process finished transforming raw customer data from system A into curated/integrated data.
@@ -88,9 +92,12 @@ This is a list of task instances with additional execution attributes:
 
 ### Core event-driven flow
 
-1. A source or process emits an `Event`.
-2. After an event is registered, a trigger manager evaluates the triggers related to that event. For each trigger, it creates task instances for all objects specified in the trigger and puts them in the queue.
-3. A queue manager process runs on a heartbeat, for example every 5 minutes, or earlier when the number of new items in the queue is above a configured queue backlog threshold.
+1. A source or process emits an `Event` onto the event bus (for example a poller publishes **data object change** or **data object progress**).
+2. After an event is registered, a trigger manager evaluates triggers for that `event_type`. **Data object progress** events are typically logged or monitored only; **data object change** events match rules that enqueue work (for example starting a [data extractor](data-extractor.md) task).
+3. For each matching trigger, the manager creates task instances and puts them in the queue.
+4. A queue manager runs on a heartbeat, for example every 5 minutes, or earlier when the queue backlog exceeds a threshold.
+
+The poller never executes extraction itself — it only detects and signals. Extraction runs as separate tasks triggered by **data object change** events.
 
 ## Project structure
 
@@ -100,6 +107,8 @@ This is a list of task instances with additional execution attributes:
     - [Business intelligence](../definitions/business-intelligence.md)
     - [Data engineering](../definitions/data-engineering.md)
   - Design patterns
+    - [Data extractor](data-extractor.md)
+    - [Data object poller](data-object-poller.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)

@@ -103,6 +103,8 @@ If the same specification cannot, in principle, be realised by more than one imp
     - [Business intelligence](../definitions/business-intelligence.md)
     - [Data engineering](../definitions/data-engineering.md)
   - Design patterns
+    - [Data extractor](data-extractor.md)
+    - [Data object poller](data-object-poller.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
