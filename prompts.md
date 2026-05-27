@@ -78,3 +78,8 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 ## Session 8
 
 1. Check and rewrite Markdown.@data-engineering-design-patterns/design-patterns/data-object-poller.md
+
+## Session 9
+
+1. create a design pattern for a data object container using these markdowns.: @data-object.md @object-property-tree.md 
+Use this Data Object Schema to enrich the data object design pattern. @open-meteo.json

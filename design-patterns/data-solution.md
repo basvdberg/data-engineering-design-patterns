@@ -16,10 +16,13 @@
 A data solution is a very generic high level concept that defines the total architecture that allows you to turn raw data into valuable insights. 
 
 ## Components
+
 - Data logistics: the transport of data from source systems into a consolidated location where it can be used for analytics and reporting.
-- Data modelling: Transforming the structure of data, or in other words the data schema. 
-- Data cleaning and enriching: Transforming data, so that data quality improves.
-- Data provisioning: Make data available for consumption by end users. 
+- Data modelling: transforming the structure of data, or in other words the data schema.
+- Data cleaning and enriching: transforming data so that data quality improves.
+- Data provisioning: making data available for consumption by end users.
+
+Layering is specified in [Data solution layer](data-solution-layer.md): staging, raw, integrated, and presentation.
 
 ## Requirements
 
@@ -45,7 +48,10 @@ An environment that is less strict and hereby allows you to quickly load and use
     - [Data engineering](../definitions/data-engineering.md)
   - Design patterns
     - [Data extractor](data-extractor.md)
+    - [Data object container](data-object-container.md)
     - [Data object poller](data-object-poller.md)
+    - [Data object](data-object.md)
+    - [Data solution layer](data-solution-layer.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
