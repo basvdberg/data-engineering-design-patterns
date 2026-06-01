@@ -205,9 +205,12 @@ For this use case (event-based orchestration plus broad connectivity across file
     - [Data solution layer](../../design-patterns/data-solution-layer.md)
     - [Data solution](../../design-patterns/data-solution.md)
     - [Event-based orchestration](../../design-patterns/event-based-orchestration.md)
+    - [Functional decomposition](../../design-patterns/functional-decomposition.md)
     - [Historic bitemporal table](../../design-patterns/historic-bitemporal-table.md)
     - [Data object property tree](../../design-patterns/object-property-tree.md)
+    - [Prefer simple decomposition](../../design-patterns/prefer-simple-decomposition.md)
     - [Separate what and how](../../design-patterns/separate-what-and-how.md)
+    - [Simplicity](../../design-patterns/simplicity.md)
   - Implementation
     - Event Based Orchestration
       - [Event-based orchestration architecture](architecture.md)

@@ -124,9 +124,12 @@ Notes on mapping:
     - [Data solution layer](data-solution-layer.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
+    - [Functional decomposition](functional-decomposition.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
     - [Data object property tree](object-property-tree.md)
+    - [Prefer simple decomposition](prefer-simple-decomposition.md)
     - [Separate what and how](separate-what-and-how.md)
+    - [Simplicity](simplicity.md)
   - Implementation
     - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)

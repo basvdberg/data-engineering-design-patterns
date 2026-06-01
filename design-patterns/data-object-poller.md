@@ -24,12 +24,12 @@ A data object poller is a lightweight component that checks whether a data objec
 
 - Separates change detection from extraction.
 - Avoids redundant full reads when nothing changed.
-- **Data object progress** events prove the poller ran even when the source is unchanged.
+- **Data object unchanged** events prove the poller ran even when the source is unchanged.
 - Records data object changes even when we are not extracting it. This can be usefull for estimating the data object change frequency.
 
 ## Summary
 
-The poller maintains a `PollRegistry` and `Schedule`, applies each object's `ChangeDetectionRule`, compares the current marker to `LastKnownState`, records a `PollRun`, and publishes exactly one **data object change** or **data object progress** event per completed poll on the event bus.
+The poller maintains a `PollRegistry` and `Schedule`, applies each object's `ChangeDetectionRule`, compares the current marker to `LastKnownState`, records a `PollRun`, and publishes exactly one **data object change** or **data object unchanged** event per completed poll on the event bus.
 
 ## Components
 
@@ -56,23 +56,23 @@ Examples:
 | Event type | When |
 |------------|------|
 | **data object change** | Marker differs from previous marker (or no previous marker yet) |
-| **data object progress** | Marker unchanged — poll succeeded, source quiet |
+| **data object unchanged** | Marker unchanged — poll succeeded, source quiet |
 
-Downstream triggers react to **data object change** only (for example to queue an extractor task). **Data object progress** informs monitoring and audit without starting extraction.
+Downstream triggers react to **data object change** only (for example to queue an extractor task). **Data object unchanged** informs monitoring and audit without starting extraction.
 
 ### Observability
 
 `OperationalLog` and `AuditTrail` record due objects, skips, failures, warnings, and who or what initiated the poll.
 
 Examples:
-- Scheduled batch: 40 polled, 38 progress, 2 change.
+- Scheduled batch: 40 polled, 38 unchanged, 2 change.
 - Manual poll referenced by operator id.
 
 ### Poll flow
 
 1. Select due objects from the registry per `Schedule`.
 2. Probe the source per `ChangeDetectionRule`; compare marker to `LastKnownState`.
-3. Publish **data object change** or **data object progress** on the event bus.
+3. Publish **data object change** or **data object unchanged** on the event bus.
 4. Update `LastKnownState` only when the marker changed and the signal path succeeded.
 5. Record the `PollRun` in operational and audit logs.
 
@@ -91,9 +91,12 @@ Examples:
     - [Data solution layer](data-solution-layer.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
+    - [Functional decomposition](functional-decomposition.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
     - [Data object property tree](object-property-tree.md)
+    - [Prefer simple decomposition](prefer-simple-decomposition.md)
     - [Separate what and how](separate-what-and-how.md)
+    - [Simplicity](simplicity.md)
   - Implementation
     - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)

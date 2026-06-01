@@ -36,6 +36,8 @@ The reason this separation is worthwhile is that the relationship between the tw
 
 A solution is described twice. Once as a specification that says *what* it does, in declarative terms. Once as an implementation that says *how* it does it, in imperative terms. The two are connected by an explicit contract. Because a single specification can be realised by many implementations, the separation lets each side change independently.
 
+Related: [Simplicity](simplicity.md) and [Functional decomposition](functional-decomposition.md).
+
 ## Components
 
 ### Specification
@@ -110,9 +112,12 @@ If the same specification cannot, in principle, be realised by more than one imp
     - [Data solution layer](data-solution-layer.md)
     - [Data solution](data-solution.md)
     - [Event-based orchestration](event-based-orchestration.md)
+    - [Functional decomposition](functional-decomposition.md)
     - [Historic bitemporal table](historic-bitemporal-table.md)
     - [Data object property tree](object-property-tree.md)
+    - [Prefer simple decomposition](prefer-simple-decomposition.md)
     - [Separate what and how](separate-what-and-how.md)
+    - [Simplicity](simplicity.md)
   - Implementation
     - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
