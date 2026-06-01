@@ -199,6 +199,6 @@ Every event should contain:
       - [Azure event-based orchestration architecture](azure-architecture.md)
       - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
 - Related repositories
-  - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026)
-  - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026)
+  - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) — Course and learning materials
+  - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026) — Data solution proof of concept
 <!-- markdown-project-structure:end -->

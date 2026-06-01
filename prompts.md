@@ -85,4 +85,10 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 
 ## Session 10
 
+1. Replace the related repositories paragraph in this document by project structure using the skill.
+
+2. Update SKILL to create project structure to exclude private repositories in the related repository section.
+
+## Session 11
+
 1. Check and rewrite Markdown.@data-engineering-design-patterns/design-patterns/data-object-poller.md
