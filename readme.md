@@ -11,6 +11,8 @@
 
 Design patterns describe functionality in a descriptive, technology-agnostic way. They support the way of working in [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) and are applied in the [data-solution-2026](https://github.com/basvdberg/data-solution-2026) proof of concept.
 
+Patterns are grouped under **Data engineering** (data objects, extractors, layers, temporal storage) and **Generic** (orchestration, decomposition, simplicity, and separating specification from implementation). Generic patterns apply outside data platforms; data-engineering patterns name concepts used in data solutions.
+
 The main reasons to document patterns this way are:
 
 - They can be used as blueprints for AI generation of underlying code in any language or tool. Select the patterns you need for your data solution.
@@ -29,19 +31,21 @@ Defining and documenting design patterns is inherently complex. Patterns evolve 
     - [Business intelligence](definitions/business-intelligence.md)
     - [Data engineering](definitions/data-engineering.md)
   - Design patterns
-    - [Data extractor](design-patterns/data-extractor.md)
-    - [Data object container](design-patterns/data-object-container.md)
-    - [Data object poller](design-patterns/data-object-poller.md)
-    - [Data object](design-patterns/data-object.md)
-    - [Data solution layer](design-patterns/data-solution-layer.md)
-    - [Data solution](design-patterns/data-solution.md)
-    - [Event-based orchestration](design-patterns/event-based-orchestration.md)
-    - [Functional decomposition](design-patterns/functional-decomposition.md)
-    - [Historic bitemporal table](design-patterns/historic-bitemporal-table.md)
-    - [Data object property tree](design-patterns/object-property-tree.md)
-    - [Prefer simple decomposition](design-patterns/prefer-simple-decomposition.md)
-    - [Separate what and how](design-patterns/separate-what-and-how.md)
-    - [Simplicity](design-patterns/simplicity.md)
+    - Data engineering
+      - [Data extractor](design-patterns/data-engineering/data-extractor.md)
+      - [Data object container](design-patterns/data-engineering/data-object-container.md)
+      - [Data object poller](design-patterns/data-engineering/data-object-poller.md)
+      - [Data object](design-patterns/data-engineering/data-object.md)
+      - [Data solution layer](design-patterns/data-engineering/data-solution-layer.md)
+      - [Data solution](design-patterns/data-engineering/data-solution.md)
+      - [Event-based orchestration](design-patterns/data-engineering/event-based-orchestration.md)
+      - [Historic bitemporal table](design-patterns/data-engineering/historic-bitemporal-table.md)
+      - [Data object property tree](design-patterns/data-engineering/object-property-tree.md)
+    - Generic
+      - [Functional decomposition](design-patterns/generic/functional-decomposition.md)
+      - [Prefer simple decomposition](design-patterns/generic/prefer-simple-decomposition.md)
+      - [Separate what and how](design-patterns/generic/separate-what-and-how.md)
+      - [Simplicity](design-patterns/generic/simplicity.md)
   - Implementation
     - Event Based Orchestration
       - [Event-based orchestration architecture](implementation/event-based-orchestration/architecture.md)

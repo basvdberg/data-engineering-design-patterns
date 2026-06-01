@@ -12,6 +12,10 @@ This document contains the prompts used to generate and refine the content in **
 
 ## Session 3
 
+1. Categorize design patterns into data engineering and generic. Move event-based orchestration and functional decomposition, and prefer simple decomposition and separate what and how. Simplicity to generic
+
+## Session 4
+
 1. I have renamed the Github repository to Data Engineering Design Patterns. Could you update my solution?
 
 2. My solution contains several projects. I want to publish the Data Engineering Design Patterns project to a GitHub repo.
@@ -30,7 +34,7 @@ This document contains the prompts used to generate and refine the content in **
 
 9. Make sure that you use the naming convention. For example, event-based-orchestration should be separated by a dash.
 
-## Session 4
+## Session 5
 
 1. Include all the prompts like you did here @prompts.md also in the other projects.
 
@@ -55,7 +59,7 @@ Specify what, not how — declarative standards (e.g. DSA metadata) and technolo
 The repo walks through this way of working (including diagrams on the old vs new data-engineering cycle), links to the Data Engineering Design Patterns collection, and points to a Data Solution 2026 proof of concept that puts the ideas into practice. This POC is in progress. I will report the lessons learned in the near future. 
 #DataEngineering #GenAI #DataArchitecture #DataSolution #DesignPatterns #CodeSpecification
 
-## Session 5
+## Session 6
 
 1. Create a new markdown file under Data Engineering Design Patterns, under the folder Design Patterns.
 
@@ -63,11 +67,15 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 
 2. Rewrite this configuration-vs-code design pattern. It should be named "Separate What and How", and it should be much more generic, not specifically for data solution but for any solution. It should describe that it's useful to separate functionality in a descriptive manner from implementation, which is imperative. This is because there is a one-to-many relationship between the two, because a specific functionality can be implemented in many ways.
 
-## Session 6
+## Session 7
 
 1. Create a plan for implementing a sample implementation using data engineering design patterns, based on free data ( e.g. OData). How can we trigger a refresh of this data for example?
 
-## Session 7
+## Session 8
+
+1. Move the cursor rules in Data engineering design patterns to the cursor config project. make sure that it is being used everywhere. Also move the pretty color logging skill to this cursor config project, so this becomes the central configuration for cursor.
+
+## Session 9
 
 1. validate @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/000_Source/dbo/CUSTOMER_OFFER.json against @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/data-objects.schema.json
 
@@ -75,11 +83,11 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 
 3. remove @data-engineering-design-patterns/implementation/full-data-solution/dutch-odata-json and all references to this folder. move the things that you need to this new location. @data-engineering-design-patterns/implementation/full-data-solution/adl/Extractors
 
-## Session 8
+## Session 10
 
 1. Check and rewrite Markdown.@data-engineering-design-patterns/design-patterns/data-object-poller.md
 
-## Session 9
+## Session 11
 
 1. create a design pattern for a data object container using these markdowns.: @data-object.md @object-property-tree.md 
 Use this Data Object Schema to enrich the data object design pattern. @open-meteo.json

@@ -1,6 +1,8 @@
 {
   "definitions": "Glossary of data engineering and BI terms",
   "design-patterns": "Technology-agnostic pattern specifications",
+  "design-patterns/data-engineering": "Patterns specific to data engineering solutions",
+  "design-patterns/generic": "Cross-domain patterns applicable beyond data engineering",
   "implementation": "Reference implementations of selected patterns",
   "implementation/event-based-orchestration": "Event-based orchestration examples and tool notes",
   "scripts": "Pre-commit checks and markdown automation"

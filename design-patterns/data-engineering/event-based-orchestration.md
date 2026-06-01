@@ -55,7 +55,7 @@ Examples:
 - A CSV file has finished uploading to a storage container.
 - A Delta table was successfully updated with today's increment.
 - A schema was changed in a production database that delivers data to us.
-- A [data object poller](data-object-poller.md) detected a new source marker and published **data object change**.
+- A [data object poller](../data-engineering/data-object-poller.md) detected a new source marker and published **data object change**.
 - The same poller ran on schedule, found no marker change, and published **data object progress** so operators know polling is healthy.
 - A long-running ingestion emits periodic updates with a progress percentage.
 - A network error caused a Parquet file write to be rolled back.
@@ -93,7 +93,7 @@ This is a list of task instances with additional execution attributes:
 ### Core event-driven flow
 
 1. A source or process emits an `Event` onto the event bus (for example a poller publishes **data object change** or **data object progress**).
-2. After an event is registered, a trigger manager evaluates triggers for that `event_type`. **Data object progress** events are typically logged or monitored only; **data object change** events match rules that enqueue work (for example starting a [data extractor](data-extractor.md) task).
+2. After an event is registered, a trigger manager evaluates triggers for that `event_type`. **Data object progress** events are typically logged or monitored only; **data object change** events match rules that enqueue work (for example starting a [data extractor](../data-engineering/data-extractor.md) task).
 3. For each matching trigger, the manager creates task instances and puts them in the queue.
 4. A queue manager runs on a heartbeat, for example every 5 minutes, or earlier when the queue backlog exceeds a threshold.
 
@@ -102,29 +102,31 @@ The poller never executes extraction itself — it only detects and signals. Ext
 ## Project structure
 
 <!-- markdown-project-structure:start -->
-- [Data Engineering Design Patterns](../readme.md)
+- [Data Engineering Design Patterns](../../readme.md)
   - Definitions
-    - [Business intelligence](../definitions/business-intelligence.md)
-    - [Data engineering](../definitions/data-engineering.md)
+    - [Business intelligence](../../definitions/business-intelligence.md)
+    - [Data engineering](../../definitions/data-engineering.md)
   - Design patterns
-    - [Data extractor](data-extractor.md)
-    - [Data object container](data-object-container.md)
-    - [Data object poller](data-object-poller.md)
-    - [Data object](data-object.md)
-    - [Data solution layer](data-solution-layer.md)
-    - [Data solution](data-solution.md)
-    - [Event-based orchestration](event-based-orchestration.md)
-    - [Functional decomposition](functional-decomposition.md)
-    - [Historic bitemporal table](historic-bitemporal-table.md)
-    - [Data object property tree](object-property-tree.md)
-    - [Prefer simple decomposition](prefer-simple-decomposition.md)
-    - [Separate what and how](separate-what-and-how.md)
-    - [Simplicity](simplicity.md)
+    - Data engineering
+      - [Data extractor](data-extractor.md)
+      - [Data object container](data-object-container.md)
+      - [Data object poller](data-object-poller.md)
+      - [Data object](data-object.md)
+      - [Data solution layer](data-solution-layer.md)
+      - [Data solution](data-solution.md)
+      - [Event-based orchestration](event-based-orchestration.md)
+      - [Historic bitemporal table](historic-bitemporal-table.md)
+      - [Data object property tree](object-property-tree.md)
+    - Generic
+      - [Functional decomposition](../generic/functional-decomposition.md)
+      - [Prefer simple decomposition](../generic/prefer-simple-decomposition.md)
+      - [Separate what and how](../generic/separate-what-and-how.md)
+      - [Simplicity](../generic/simplicity.md)
   - Implementation
     - Event Based Orchestration
-      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
-      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
-      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
+      - [Event-based orchestration architecture](../../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../../implementation/event-based-orchestration/tool-choice.md)
 - Related repositories
   - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026)
   - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026)

@@ -75,29 +75,31 @@ Apply `FunctionalDecomposition` when it reduces duplication and operational comp
 ## Project structure
 
 <!-- markdown-project-structure:start -->
-- [Data Engineering Design Patterns](../readme.md)
+- [Data Engineering Design Patterns](../../readme.md)
   - Definitions
-    - [Business intelligence](../definitions/business-intelligence.md)
-    - [Data engineering](../definitions/data-engineering.md)
+    - [Business intelligence](../../definitions/business-intelligence.md)
+    - [Data engineering](../../definitions/data-engineering.md)
   - Design patterns
-    - [Data extractor](data-extractor.md)
-    - [Data object container](data-object-container.md)
-    - [Data object poller](data-object-poller.md)
-    - [Data object](data-object.md)
-    - [Data solution layer](data-solution-layer.md)
-    - [Data solution](data-solution.md)
-    - [Event-based orchestration](event-based-orchestration.md)
-    - [Functional decomposition](functional-decomposition.md)
-    - [Historic bitemporal table](historic-bitemporal-table.md)
-    - [Data object property tree](object-property-tree.md)
-    - [Prefer simple decomposition](prefer-simple-decomposition.md)
-    - [Separate what and how](separate-what-and-how.md)
-    - [Simplicity](simplicity.md)
+    - Data engineering
+      - [Data extractor](../data-engineering/data-extractor.md)
+      - [Data object container](../data-engineering/data-object-container.md)
+      - [Data object poller](../data-engineering/data-object-poller.md)
+      - [Data object](../data-engineering/data-object.md)
+      - [Data solution layer](../data-engineering/data-solution-layer.md)
+      - [Data solution](../data-engineering/data-solution.md)
+      - [Event-based orchestration](../data-engineering/event-based-orchestration.md)
+      - [Historic bitemporal table](../data-engineering/historic-bitemporal-table.md)
+      - [Data object property tree](../data-engineering/object-property-tree.md)
+    - Generic
+      - [Functional decomposition](functional-decomposition.md)
+      - [Prefer simple decomposition](prefer-simple-decomposition.md)
+      - [Separate what and how](separate-what-and-how.md)
+      - [Simplicity](simplicity.md)
   - Implementation
     - Event Based Orchestration
-      - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
-      - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
-      - [Tool choice for a data warehouse orchestration tool](../implementation/event-based-orchestration/tool-choice.md)
+      - [Event-based orchestration architecture](../../implementation/event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../../implementation/event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../../implementation/event-based-orchestration/tool-choice.md)
 - Related repositories
   - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026)
   - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026)
