@@ -50,7 +50,7 @@ A data object always exists in a [data object container](data-object-container.m
 - A local file path.
 - A public REST API URL parent.
 
-The container provides inherited properties (connection, owner, classifications) per the [data object property tree](object-property-tree.md).
+The container provides inherited properties (connection, owner, classifications) per [data object tree property inheritance](data-object-tree-property-inheritance.md).
 
 ### Physical location
 
@@ -74,7 +74,7 @@ The `Schema` lists the `DataItems` (columns, fields) of the data object. Each `D
 - Optional sizing — `characterLength`, `numericPrecision`, `numericScale`.
 - Optional key flag — `isPrimaryKey`.
 
-Source data objects may declare an empty `dataItems` list when the source is opaque (for example a REST endpoint whose response is normalized downstream). Hierarchy and inherited structural properties are covered by [data object property tree](object-property-tree.md).
+Source data objects may declare an empty `dataItems` list when the source is opaque (for example a REST endpoint whose response is normalized downstream). Hierarchy is covered by [data object tree](data-object-tree.md); inherited properties by [data object tree property inheritance](data-object-tree-property-inheritance.md).
 
 ### Classification
 
@@ -101,12 +101,13 @@ A data object may carry any number of classifications; orchestration and ADL tem
       - [Data extractor](data-extractor.md)
       - [Data object container](data-object-container.md)
       - [Data object poller](data-object-poller.md)
+      - [Data object tree property inheritance](data-object-tree-property-inheritance.md)
+      - [Data object tree](data-object-tree.md)
       - [Data object](data-object.md)
       - [Data solution layer](data-solution-layer.md)
       - [Data solution](data-solution.md)
       - [Event-based orchestration](event-based-orchestration.md)
       - [Historic bitemporal table](historic-bitemporal-table.md)
-      - [Data object property tree](object-property-tree.md)
     - Generic
       - [Functional decomposition](../generic/functional-decomposition.md)
       - [Prefer simple decomposition](../generic/prefer-simple-decomposition.md)

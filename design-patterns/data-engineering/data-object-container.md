@@ -23,7 +23,7 @@ A data object container groups [data objects](data-object.md) and other containe
 
 Containers let scope be set once and inherited. Without containers, every data object repeats its source system, connection, owner, retention, and classifications on its own. With containers, those facts attach to the smallest enclosing scope and reach all descendants.
 
-The hierarchy and the inheritance mechanism are defined by the [data object property tree](object-property-tree.md). This pattern focuses on the container node itself.
+The hierarchy is defined by the [data object tree](data-object-tree.md); property inheritance is defined by [data object tree property inheritance](data-object-tree-property-inheritance.md). This pattern focuses on the container node itself.
 
 ## Components
 
@@ -76,7 +76,7 @@ A `DataObjectContainer` has at most one `Parent`. The hierarchy is a tree.
 
 ### Scope is inherited
 
-Properties attached to a container reach every descendant by inheritance, following the resolution rules in [data object property tree](object-property-tree.md). Any descendant may override an inherited value.
+Properties attached to a container reach every descendant by inheritance, following the resolution rules in [data object tree property inheritance](data-object-tree-property-inheritance.md). Any descendant may override an inherited value.
 
 ### Containers group, they do not carry payload
 
@@ -98,12 +98,13 @@ A container's `Key` reflects its position in the tree. Renames and moves update 
       - [Data extractor](data-extractor.md)
       - [Data object container](data-object-container.md)
       - [Data object poller](data-object-poller.md)
+      - [Data object tree property inheritance](data-object-tree-property-inheritance.md)
+      - [Data object tree](data-object-tree.md)
       - [Data object](data-object.md)
       - [Data solution layer](data-solution-layer.md)
       - [Data solution](data-solution.md)
       - [Event-based orchestration](event-based-orchestration.md)
       - [Historic bitemporal table](historic-bitemporal-table.md)
-      - [Data object property tree](object-property-tree.md)
     - Generic
       - [Functional decomposition](../generic/functional-decomposition.md)
       - [Prefer simple decomposition](../generic/prefer-simple-decomposition.md)
