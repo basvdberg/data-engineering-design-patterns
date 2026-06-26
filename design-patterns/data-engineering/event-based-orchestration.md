@@ -36,29 +36,50 @@ E.g. by prioritizing important tasks over less important tasks, manage compute p
 ### Event
 
 The `Event` entity captures every relevant change or process signal that can trigger orchestration. It is the entry point of the pattern and stores the event type, related process lifecycle, identifying attributes of the related data object, and operational metrics.
-**Event types:**  
-  - File write 
-  - Data object incremental update 
-  - Data object rewrite
-  - Data object delete
-  - Data object schema change
-  - **Data object change** — a polled or observed data object has a new change marker (for example a new file name, observation day, or `lastModified` value); downstream work such as extraction may be scheduled
-  - **Data object progress** — a poll or check completed successfully and the change marker is unchanged; signals liveness and auditability without starting downstream work
-  - Processing error   
-**Process lifecycle:**
-  - Start
-  - Success
-  - Failed
-  - InProgress
+
+**Process lifecycle**
+
+Events can be classified into the following categories:
+| Lifecycle | Meaning |
+|-----------|---------|
+| `start` | A process instance began. |
+| `success` | A process instance finished successfully. |
+| `failed` | A process instance failed. |
+| `in_progress` | A process instance is still running. |
+
+Unless an event name specifies otherwise, the **default interpretation is that the related process succeeded**. 
+
+**Event glossary**
+
+| Event | Meaning |
+|-------|---------|
+| `file_write_start` | A file write began; the outcome is not yet known. |
+| `file_write` | A file finished writing to storage successfully. |
+| `file_write_failure` | A file write failed or was rolled back. |
+| `data_object_delete` | A data object was removed successfully. |
+| `data_object_schema_change` | The schema of a source or data object changed successfully. |
+| `data_object_change` | A polled or observed data object has a new change marker (for example a file name, observation day, or `lastModified` value). |
+| `data_object_unchanged` | A poll or check completed successfully and the change marker is unchanged. |
+| `processing_error` | A process failed and was rolled back or aborted. |
+| `crash` | A process terminated unexpectedly without a controlled failure signal. |
+
+**Change scope** (attribute on `data_object_change`)
+
+| `change_scope` | Meaning |
+|----------------|---------|
+| `incremental_update` | New or appended data since the last marker (for example a new observation day). |
+| `full_rewrite` | The data object was fully replaced in one run. |
+| `historical_rewrite` | Past data was corrected or backfilled. |
+
 
 Examples:
 - A CSV file has finished uploading to a storage container.
-- A Delta table was successfully updated with today's increment.
+- A Delta table was successfully updated with today's increment (`data_object_change`, `change_scope=incremental_update`).
 - A schema was changed in a production database that delivers data to us.
 - A [data object poller](../data-engineering/data-object-poller.md) detected a new source marker and published **data object change**.
-- The same poller ran on schedule, found no marker change, and published **data object progress** so operators know polling is healthy.
+- The same poller ran on schedule, found no marker change, and published **data object unchanged** so operators know polling is healthy.
 - A long-running ingestion emits periodic updates with a progress percentage.
-- A network error caused a Parquet file write to be rolled back.
+- A network error caused a database write to be rolled back.
 - A process finished transforming raw customer data from system A into curated/integrated data.
 
 ### Trigger
@@ -92,12 +113,26 @@ This is a list of task instances with additional execution attributes:
 
 ### Core event-driven flow
 
-1. A source or process emits an `Event` onto the event bus (for example a poller publishes **data object change** or **data object progress**).
-2. After an event is registered, a trigger manager evaluates triggers for that `event_type`. **Data object progress** events are typically logged or monitored only; **data object change** events match rules that enqueue work (for example starting a [data extractor](../data-engineering/data-extractor.md) task).
+```mermaid
+flowchart TD
+  Source["Source or process"] --> Emit["Emit Event on event bus"]
+  Emit --> Route{"event_type?"}
+  Route -->|data_object_unchanged| Audit["Audit / monitoring only"]
+  Route -->|data_object_change or other| Trigger["Trigger manager evaluates rules"]
+  Trigger --> TaskInstance["Create TaskInstance"]
+  TaskInstance --> Queue["Enqueue task"]
+  Queue --> Execute["Queue manager executes task"]
+  Execute --> Outcome{"Process outcome?"}
+  Outcome -->|success| SuccessEvent["Emit lifecycle success event"]
+  Outcome -->|failed| ErrorEvent["Emit processing_error"]
+```
+
+1. A source or process emits an `Event` onto the event bus (for example a poller publishes `data_object_change` or `data_object_unchanged`).
+2. After an event is registered, a trigger manager evaluates triggers for that `event_type`. `data_object_unchanged` events are logged or monitored only; `data_object_change` events match rules that enqueue work (for example starting a [data extractor](../data-engineering/data-extractor.md) task).
 3. For each matching trigger, the manager creates task instances and puts them in the queue.
 4. A queue manager runs on a heartbeat, for example every 5 minutes, or earlier when the queue backlog exceeds a threshold.
 
-The poller never executes extraction itself — it only detects and signals. Extraction runs as separate tasks triggered by **data object change** events.
+The poller never executes extraction itself — it only detects and signals. Extraction runs as separate tasks triggered by `data_object_change` events.
 
 ## Project structure
 
@@ -106,11 +141,16 @@ The poller never executes extraction itself — it only detects and signals. Ext
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
     - [Data engineering](../../definitions/data-engineering.md)
+    - [Data](../../definitions/data.md)
   - Design patterns
     - Data engineering
       - [Data extractor](data-extractor.md)
       - [Data object container](data-object-container.md)
+      - [Data object contract](data-object-contract.md)
       - [Data object poller](data-object-poller.md)
+      - [Data object quality of service](data-object-quality-of-service.md)
+      - [Data object quality](data-object-quality.md)
+      - [Data object refresh contract](data-object-refresh-contract.md)
       - [Data object tree property inheritance](data-object-tree-property-inheritance.md)
       - [Data object tree](data-object-tree.md)
       - [Data object](data-object.md)
@@ -124,6 +164,8 @@ The poller never executes extraction itself — it only detects and signals. Ext
       - [Separate what and how](../generic/separate-what-and-how.md)
       - [Simplicity](../generic/simplicity.md)
   - Implementation
+    - Data Object Refresh Contract
+      - [Data object refresh contract alternatives](../../implementation/data-object-refresh-contract/alternatives.md)
     - Event Based Orchestration
       - [Event-based orchestration architecture](../../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../../implementation/event-based-orchestration/azure-architecture.md)

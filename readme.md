@@ -9,7 +9,9 @@
 
 ## Purpose
 
-Design patterns describe functionality in a descriptive, technology-agnostic way. They support the way of working in [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) and are applied in the [data-solution-2026](https://github.com/basvdberg/data-solution-2026) proof of concept.
+A design pattern is a reusable, technology-agnostic solution to a recurring problem, describing the trade-offs, structure, and reasoning for how to approach something so you can apply it across different situations. A definition simply states what a term means—it establishes shared vocabulary and meaning without prescribing how to solve a problem. In short: a definition tells you what something is, while a design pattern tells you how to do something well and why.
+
+Design patterns support the way of working in [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) and are applied in the [data-solution-2026](https://github.com/basvdberg/data-solution-2026) proof of concept.
 
 Patterns are grouped under **Data engineering** (data objects, extractors, layers, temporal storage) and **Generic** (orchestration, decomposition, simplicity, and separating specification from implementation). Generic patterns apply outside data platforms; data-engineering patterns name concepts used in data solutions.
 
@@ -30,11 +32,16 @@ Defining and documenting design patterns is inherently complex. Patterns evolve 
   - Definitions
     - [Business intelligence](definitions/business-intelligence.md)
     - [Data engineering](definitions/data-engineering.md)
+    - [Data](definitions/data.md)
   - Design patterns
     - Data engineering
       - [Data extractor](design-patterns/data-engineering/data-extractor.md)
       - [Data object container](design-patterns/data-engineering/data-object-container.md)
+      - [Data object contract](design-patterns/data-engineering/data-object-contract.md)
       - [Data object poller](design-patterns/data-engineering/data-object-poller.md)
+      - [Data object quality of service](design-patterns/data-engineering/data-object-quality-of-service.md)
+      - [Data object quality](design-patterns/data-engineering/data-object-quality.md)
+      - [Data object refresh contract](design-patterns/data-engineering/data-object-refresh-contract.md)
       - [Data object tree property inheritance](design-patterns/data-engineering/data-object-tree-property-inheritance.md)
       - [Data object tree](design-patterns/data-engineering/data-object-tree.md)
       - [Data object](design-patterns/data-engineering/data-object.md)
@@ -48,6 +55,8 @@ Defining and documenting design patterns is inherently complex. Patterns evolve 
       - [Separate what and how](design-patterns/generic/separate-what-and-how.md)
       - [Simplicity](design-patterns/generic/simplicity.md)
   - Implementation
+    - Data Object Refresh Contract
+      - [Data object refresh contract alternatives](implementation/data-object-refresh-contract/alternatives.md)
     - Event Based Orchestration
       - [Event-based orchestration architecture](implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](implementation/event-based-orchestration/azure-architecture.md)

@@ -1,4 +1,4 @@
-# Event-based orchestration implementation
+# Data object refresh contract implementation
 
 ## Table of contents
 
@@ -9,15 +9,13 @@
 
 ## Purpose
 
-This folder contains implementation guidance for the [event-based-orchestration](../../design-patterns/generic/event-based-orchestration.md) design pattern. Where the design pattern describes the concepts in a technology-agnostic way, the documents here provide concrete architectural decisions, technology choices, and platform-specific reference architectures.
+This folder contains implementation guidance for the [data object refresh contract](../../design-patterns/data-engineering/data-object-refresh-contract.md) design pattern. Where the design pattern states functional requirements and use cases in a technology-agnostic way, the documents here compare industry standards and toolchains for implementing refresh contracts.
 
 ## Documents
 
 | Document | Description |
 | --- | --- |
-| [Tool choice](tool-choice.md) | Compares orchestration tools across eight capability areas and provides a scored matrix to guide tool selection. Covers managed platforms, open-source options, and a self-built approach with a recommended Python stack. |
-| [Architecture](architecture.md) | Defines a platform-independent reference architecture for event-based orchestration, including core components (event bus, rules engine, execution queue, workers), event contracts, reliability patterns, and a phased rollout plan. |
-| [Azure architecture](azure-architecture.md) | Maps the reference architecture to a concrete Azure stack using Event Hubs, Service Bus, Airflow on AKS, Databricks, and PostgreSQL. Includes network and security baseline, deployment model, and an implementation backlog. |
+| [Alternatives](alternatives.md) | Compares ODCS, dbt freshness, and catalog assertion contracts against the refresh contract pattern. Includes a side-by-side summary and practical combination recommendations. |
 
 ## Project structure
 
@@ -50,11 +48,11 @@ This folder contains implementation guidance for the [event-based-orchestration]
       - [Simplicity](../../design-patterns/generic/simplicity.md)
   - Implementation
     - Data Object Refresh Contract
-      - [Data object refresh contract alternatives](../data-object-refresh-contract/alternatives.md)
+      - [Data object refresh contract alternatives](alternatives.md)
     - Event Based Orchestration
-      - [Event-based orchestration architecture](architecture.md)
-      - [Azure event-based orchestration architecture](azure-architecture.md)
-      - [Tool choice for a data warehouse orchestration tool](tool-choice.md)
+      - [Event-based orchestration architecture](../event-based-orchestration/architecture.md)
+      - [Azure event-based orchestration architecture](../event-based-orchestration/azure-architecture.md)
+      - [Tool choice for a data warehouse orchestration tool](../event-based-orchestration/tool-choice.md)
 - Related repositories
   - [Data Engineering 2026](https://github.com/basvdberg/data-engineering-2026) — Course and learning materials
   - [Data Solution 2026](https://github.com/basvdberg/data-solution-2026) — Data solution proof of concept

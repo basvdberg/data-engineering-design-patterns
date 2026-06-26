@@ -104,11 +104,16 @@ If the same specification cannot, in principle, be realised by more than one imp
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
     - [Data engineering](../../definitions/data-engineering.md)
+    - [Data](../../definitions/data.md)
   - Design patterns
     - Data engineering
       - [Data extractor](../data-engineering/data-extractor.md)
       - [Data object container](../data-engineering/data-object-container.md)
+      - [Data object contract](../data-engineering/data-object-contract.md)
       - [Data object poller](../data-engineering/data-object-poller.md)
+      - [Data object quality of service](../data-engineering/data-object-quality-of-service.md)
+      - [Data object quality](../data-engineering/data-object-quality.md)
+      - [Data object refresh contract](../data-engineering/data-object-refresh-contract.md)
       - [Data object tree property inheritance](../data-engineering/data-object-tree-property-inheritance.md)
       - [Data object tree](../data-engineering/data-object-tree.md)
       - [Data object](../data-engineering/data-object.md)
@@ -122,6 +127,8 @@ If the same specification cannot, in principle, be realised by more than one imp
       - [Separate what and how](separate-what-and-how.md)
       - [Simplicity](simplicity.md)
   - Implementation
+    - Data Object Refresh Contract
+      - [Data object refresh contract alternatives](../../implementation/data-object-refresh-contract/alternatives.md)
     - Event Based Orchestration
       - [Event-based orchestration architecture](../../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../../implementation/event-based-orchestration/azure-architecture.md)

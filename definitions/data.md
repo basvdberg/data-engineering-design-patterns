@@ -1,44 +1,23 @@
-# Business intelligence
+# Data
 
 ## Table of contents
 
 <!-- markdown-toc:start -->
 - [Definition](#definition)
-- [Applications](#applications)
+- [References](#references)
 <!-- markdown-toc:end -->
 
 ## Definition
 
-Business intelligence (BI) is the process of collecting, analyzing, and presenting business data to help organizations make informed, data-driven decisions. The definition of business intelligence overlaps with data engineering, but a key distinction is that BI includes presenting data to end users, while data engineering focuses on data processing and integration rather than presentation.
+"Data is evidence of past activity, frozen moments in time, waiting to be uncovered and analyzed, but without understanding the context in which data is created, it remains just stuff. 
+ 
+In a way, this process of discovery can be likened to how paleontologists carefully unearth ancient skeletons and imprints, using these artifacts to reconstruct what happened at that last moment in time. 
 
-```mermaid
-flowchart LR
-    SS1([Source System])
-    SS2([Source System])
-    SS3([Source System])
-    SS4([Source System])
+Closer to home, data can be defined as a byproduct of business processes. These processes themselves can be explained as orchestrated sets of activities designed to reach a specific goal, or simply put, the things people do day to day in their job. "
 
-    SS1 --> DE([Data Engineering])
-    SS2 --> DE
-    SS3 --> DE
-    SS4 --> DE
+## References
 
-    DE --> R([Reporting])
-    DE --> A([Analytics])
-    DE --> M([Monitoring])
-
-    R --> D([Decisions])
-    A --> D
-    M --> D
-```
-
-## Applications
-
-| Application | Description |
-| --- | --- |
-| Reporting | Recurring delivery of predefined metrics in a fixed layout. |
-| Analytics | Exploring and analyzing data to discover patterns and forecast outcomes. |
-| Monitoring | Continuous tracking of metrics with alerts when values deviate from expected patterns. |
+Vos, R., & Lerner, D. (2025). *Data Engine Thinking: FastChangeCo's journey towards a fully flexible data solution*. Vos & Lerner Data Engine Thinking GbR. ISBN 978-3982718002.
 
 ## Project structure
 

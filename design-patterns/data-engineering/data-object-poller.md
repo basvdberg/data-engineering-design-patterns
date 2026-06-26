@@ -83,11 +83,16 @@ Examples:
   - Definitions
     - [Business intelligence](../../definitions/business-intelligence.md)
     - [Data engineering](../../definitions/data-engineering.md)
+    - [Data](../../definitions/data.md)
   - Design patterns
     - Data engineering
       - [Data extractor](data-extractor.md)
       - [Data object container](data-object-container.md)
+      - [Data object contract](data-object-contract.md)
       - [Data object poller](data-object-poller.md)
+      - [Data object quality of service](data-object-quality-of-service.md)
+      - [Data object quality](data-object-quality.md)
+      - [Data object refresh contract](data-object-refresh-contract.md)
       - [Data object tree property inheritance](data-object-tree-property-inheritance.md)
       - [Data object tree](data-object-tree.md)
       - [Data object](data-object.md)
@@ -101,6 +106,8 @@ Examples:
       - [Separate what and how](../generic/separate-what-and-how.md)
       - [Simplicity](../generic/simplicity.md)
   - Implementation
+    - Data Object Refresh Contract
+      - [Data object refresh contract alternatives](../../implementation/data-object-refresh-contract/alternatives.md)
     - Event Based Orchestration
       - [Event-based orchestration architecture](../../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../../implementation/event-based-orchestration/azure-architecture.md)

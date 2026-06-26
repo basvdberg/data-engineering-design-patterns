@@ -36,6 +36,10 @@ This document contains the prompts used to generate and refine the content in **
 
 ## Session 5
 
+1. Update skills to deploy changes to BasNAS via the CI/CD process, meaning that I should just commit and push my changes to main, which will trigger the deploy to BasNAS.
+
+## Session 6
+
 1. Include all the prompts like you did here @prompts.md also in the other projects.
 
 2. @readme.md Update this readme with a disclaimer that explains that defining design patterns is a complex job that requires continuous refactoring and improving.
@@ -59,7 +63,7 @@ Specify what, not how — declarative standards (e.g. DSA metadata) and technolo
 The repo walks through this way of working (including diagrams on the old vs new data-engineering cycle), links to the Data Engineering Design Patterns collection, and points to a Data Solution 2026 proof of concept that puts the ideas into practice. This POC is in progress. I will report the lessons learned in the near future. 
 #DataEngineering #GenAI #DataArchitecture #DataSolution #DesignPatterns #CodeSpecification
 
-## Session 6
+## Session 7
 
 1. Create a new markdown file under Data Engineering Design Patterns, under the folder Design Patterns.
 
@@ -67,15 +71,21 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 
 2. Rewrite this configuration-vs-code design pattern. It should be named "Separate What and How", and it should be much more generic, not specifically for data solution but for any solution. It should describe that it's useful to separate functionality in a descriptive manner from implementation, which is imperative. This is because there is a one-to-many relationship between the two, because a specific functionality can be implemented in many ways.
 
-## Session 7
+## Session 8
 
 1. Create a plan for implementing a sample implementation using data engineering design patterns, based on free data ( e.g. OData). How can we trigger a refresh of this data for example?
 
-## Session 8
+## Session 9
 
 1. Move the cursor rules in Data engineering design patterns to the cursor config project. make sure that it is being used everywhere. Also move the pretty color logging skill to this cursor config project, so this becomes the central configuration for cursor.
 
-## Session 9
+## Session 10
+
+1. Remove the post-commit hook that creates @data-engineering-design-patterns/prompts.md  in the root, since it should be created under release.
+
+2. Remove all references to @data-solution-2026/release/details/v2026.06.02.2/prompts.md  in the root.
+
+## Session 11
 
 1. validate @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/000_Source/dbo/CUSTOMER_OFFER.json against @data-engineering-design-patterns/implementation/full-data-solution/DataObjects/data-objects.schema.json
 
@@ -83,12 +93,12 @@ Replace this text in the current readme 'Calls separate what from how. Configura
 
 3. remove @data-engineering-design-patterns/implementation/full-data-solution/dutch-odata-json and all references to this folder. move the things that you need to this new location. @data-engineering-design-patterns/implementation/full-data-solution/adl/Extractors
 
-## Session 10
+## Session 12
 
 1. Replace the related repositories paragraph in this document by project structure using the skill.
 
 2. Update SKILL to create project structure to exclude private repositories in the related repository section.
 
-## Session 11
+## Session 13
 
 1. Check and rewrite Markdown.@data-engineering-design-patterns/design-patterns/data-object-poller.md

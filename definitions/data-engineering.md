@@ -85,11 +85,16 @@ Implementation follows these concepts:
   - Definitions
     - [Business intelligence](business-intelligence.md)
     - [Data engineering](data-engineering.md)
+    - [Data](data.md)
   - Design patterns
     - Data engineering
       - [Data extractor](../design-patterns/data-engineering/data-extractor.md)
       - [Data object container](../design-patterns/data-engineering/data-object-container.md)
+      - [Data object contract](../design-patterns/data-engineering/data-object-contract.md)
       - [Data object poller](../design-patterns/data-engineering/data-object-poller.md)
+      - [Data object quality of service](../design-patterns/data-engineering/data-object-quality-of-service.md)
+      - [Data object quality](../design-patterns/data-engineering/data-object-quality.md)
+      - [Data object refresh contract](../design-patterns/data-engineering/data-object-refresh-contract.md)
       - [Data object tree property inheritance](../design-patterns/data-engineering/data-object-tree-property-inheritance.md)
       - [Data object tree](../design-patterns/data-engineering/data-object-tree.md)
       - [Data object](../design-patterns/data-engineering/data-object.md)
@@ -103,6 +108,8 @@ Implementation follows these concepts:
       - [Separate what and how](../design-patterns/generic/separate-what-and-how.md)
       - [Simplicity](../design-patterns/generic/simplicity.md)
   - Implementation
+    - Data Object Refresh Contract
+      - [Data object refresh contract alternatives](../implementation/data-object-refresh-contract/alternatives.md)
     - Event Based Orchestration
       - [Event-based orchestration architecture](../implementation/event-based-orchestration/architecture.md)
       - [Azure event-based orchestration architecture](../implementation/event-based-orchestration/azure-architecture.md)
