@@ -105,6 +105,7 @@ If multiple near-identical pipelines exist, refactor toward reusable units and o
       - [Data solution](../data-engineering/data-solution.md)
       - [Event-based orchestration](../data-engineering/event-based-orchestration.md)
       - [Historic bitemporal table](../data-engineering/historic-bitemporal-table.md)
+      - [Specification driven documentation](../data-engineering/specification-driven-documentation.md)
     - Generic
       - [Functional decomposition](functional-decomposition.md)
       - [Prefer simple decomposition](prefer-simple-decomposition.md)

@@ -131,6 +131,7 @@ Time to repair (Tr) measures how long it takes to restore agreed service after d
       - [Data solution](data-solution.md)
       - [Event-based orchestration](event-based-orchestration.md)
       - [Historic bitemporal table](historic-bitemporal-table.md)
+      - [Specification driven documentation](specification-driven-documentation.md)
     - Generic
       - [Functional decomposition](../generic/functional-decomposition.md)
       - [Prefer simple decomposition](../generic/prefer-simple-decomposition.md)

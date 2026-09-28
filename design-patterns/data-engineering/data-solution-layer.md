@@ -133,6 +133,7 @@ Notes on mapping:
       - [Data solution](data-solution.md)
       - [Event-based orchestration](event-based-orchestration.md)
       - [Historic bitemporal table](historic-bitemporal-table.md)
+      - [Specification driven documentation](specification-driven-documentation.md)
     - Generic
       - [Functional decomposition](../generic/functional-decomposition.md)
       - [Prefer simple decomposition](../generic/prefer-simple-decomposition.md)

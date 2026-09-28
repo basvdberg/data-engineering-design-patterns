@@ -43,6 +43,7 @@ Vos, R., & Lerner, D. (2025). *Data Engine Thinking: FastChangeCo's journey towa
       - [Data solution](../design-patterns/data-engineering/data-solution.md)
       - [Event-based orchestration](../design-patterns/data-engineering/event-based-orchestration.md)
       - [Historic bitemporal table](../design-patterns/data-engineering/historic-bitemporal-table.md)
+      - [Specification driven documentation](../design-patterns/data-engineering/specification-driven-documentation.md)
     - Generic
       - [Functional decomposition](../design-patterns/generic/functional-decomposition.md)
       - [Prefer simple decomposition](../design-patterns/generic/prefer-simple-decomposition.md)
