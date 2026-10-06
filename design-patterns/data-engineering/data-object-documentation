@@ -1,7 +1,9 @@
 The purpose of documentation:
 
 1. Explain the purpose and design to other data engineers, so they can maintain and extend it. 
-2. Explain to end users the definition, so they understand how this data object is constructed,
+2. Explain to end users, so they understand how this data object is constructed,
 which filters are applied, which assumptions were made and which business rules were executed. This
-is needed when using this data object for a reporting or analytics task. 
+is needed when using this data object for a reporting or analytics task. E.g. for determining whether this 
+data object is suitable for answering certain questions.
+3. Define 
 
