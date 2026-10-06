@@ -1,22 +1,21 @@
 The purpose of documentation:
 
-Documentatin is normally made for the following three types of readers:
+Documentation is normally made for the following types of readers:
 
 1. Other data engineers, team members and future colleagues. 
-2. Data prodct owner.
+2. Data product owner.
 2. End users, stakeholders, analists.
 4. AI agents.
 
 Each reader has different purpose and requirements. 
 
-| reader    |  purpose         | requireents |
------------------------------------------------
+| reader    |  purpose         | 
+---------------------------------
 | Data engineers | maintain and extend the data object | 
-
-
-2. Explain to end users, so they understand how this data object is constructed,
-which filters are applied, which assumptions were made and which business rules were executed. This
+| Data product owner | functional maintenance, communicate with stakeholders |
+| End users, stakeholders, analists | Understand business definitions. How are column values constructed out of source data? which filters are applied, which assumptions were made and which business rules were executed. This
 is needed when using this data object for a reporting or analytics task. E.g. for determining whether this 
-data object is suitable for answering certain questions.
-3. Define 
+data object is suitable for answering certain questions.|
+| AI agents | What is the purpose of this data object and how should it be populated from source dat. Unambiguous specification |
+----------------------------------------
 
